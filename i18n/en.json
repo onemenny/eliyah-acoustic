@@ -89,5 +89,22 @@
   "appLabel": "Application",
   "appHead": "Systems are developed for private residences and select high-end public environments.",
   "applications": ["Private homes", "Dedicated listening rooms", "Luxury hospitality spaces", "Premium retail environments"],
-  "appBody": "Each project is designed to support both focused listening and a natural flow of movement within the space. The system becomes an integral part of how the space is experienced and used."
+  "appBody": "Each project is designed to support both focused listening and a natural flow of movement within the space. The system becomes an integral part of how the space is experienced and used.",
+  "maniLabel": "Manifesto",
+  "maniHead": "Sound is not fixed. It is shaped.",
+  "maniA": "By space, material, and placement — and by the way it is experienced. A system cannot exist independently from the room. It is defined by it. Every surface affects it. Every proportion shifts it. Every decision leaves a trace.",
+  "maniB": "We design and build systems that belong to their space. Built in relation to architecture. Developed through listening. Refined through tuning — always performed by us, in-house. What matters is how sound moves, how it settles, and how it holds presence within the room.",
+  "maniClose": "When alignment is achieved, sound becomes physical. It is no longer observed. It is experienced.",
+  "aboutLabel": "About",
+  "aboutHead": "Sound, shaped through listening.",
+  "aboutA": "Our understanding of sound was formed early, in a period when sound systems were built from separate components — each with a defined role and frequency range. This way of working trained our ear to listen in layers.",
+  "aboutB": "Our team’s first professional experience involved building crossover networks within one of Israel’s leading audio environments. Over time, we built more than a thousand of them, developing a precise understanding of frequency distribution, system balance, and acoustic behavior. From there, our work expanded into the design and tuning of sound environments in Israel and across Europe.",
+  "aboutQuote": "“In one residential project, during a classical music listening session, a client described being able to perceive the exact position of the violinist within the space.”",
+  "aboutQuoteSub": "This level of spatial definition is not achieved through equipment alone. It is the result of alignment — between system, space, and perception.",
+  "teamLabel": "Team",
+  "team": [
+    { "name": "Bar Dadush", "role": "Loudspeaker Design, Development & Planning, Assembly & Client Relations" },
+    { "name": "Ofer Uziel", "role": "Sound Design, Tuning & Development" },
+    { "name": "Maayan Dadush", "role": "Marketing & Brand" }
+  ]
 }

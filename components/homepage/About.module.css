@@ -1,0 +1,168 @@
+/* Docs §5.4 item 15 — the page's only light-theme section. */
+
+.about {
+  background: var(--travertine);
+  color: var(--void-oak);
+  padding: var(--section-y-tight) var(--page-padding-x);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as other sections, but each
+   element is observed individually (see About.tsx) rather than via
+   `observeRevealGroup`, since bodyA/bodyB intentionally share one index. */
+.portrait,
+.label,
+.head,
+.body,
+.quoteBlock {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.portrait[data-revealed='true'],
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.body[data-revealed='true'],
+.quoteBlock[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--travertine-dim);
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--walnut);
+  margin-bottom: 28px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(26px, 3.8vw, 50px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.18);
+  margin: 0;
+  color: var(--void-oak);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  margin: 28px 0 0;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body-light);
+  direction: var(--text-dir);
+}
+
+.quoteBlock {
+  margin-top: 34px;
+  padding: 30px 0 0;
+  border-top: 1px solid var(--hairline-light);
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: clamp(19px, 2.2vw, 26px);
+  line-height: 1.5;
+  color: var(--void-oak);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.quoteSub {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--text-caption-light);
+  direction: var(--text-dir);
+}
+
+.teamSection {
+  margin-top: clamp(52px, 8vw, 104px);
+  padding-top: 34px;
+  border-top: 1px solid var(--hairline-light);
+}
+
+.teamLabel {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--walnut);
+  margin-bottom: 30px;
+  direction: var(--text-dir);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.teamName {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  color: var(--void-oak);
+  direction: var(--text-dir);
+}
+
+.teamRole {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: var(--text-caption-light-strong);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait,
+  .label,
+  .head,
+  .body,
+  .quoteBlock,
+  .imageWrap {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

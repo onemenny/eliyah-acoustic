@@ -1,0 +1,96 @@
+/* Docs §5.4 item 14. */
+
+.manifesto {
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as CoreValue/EliyahAcoustic. */
+.label,
+.head,
+.bodyA,
+.bodyB,
+.close {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.bodyA[data-revealed='true'],
+.bodyB[data-revealed='true'],
+.close[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 46px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(34px, 6vw, 86px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.1);
+  margin: 0;
+  max-width: 14em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(32px, 5vw, 80px);
+  margin-top: clamp(46px, 7vw, 88px);
+  max-width: 1000px;
+}
+
+.bodyA,
+.bodyB {
+  margin: 0;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+.close {
+  margin: clamp(44px, 6vw, 72px) 0 0;
+  max-width: 24em;
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: clamp(22px, 3vw, 38px);
+  line-height: 1.35;
+  color: var(--text-heading);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .bodyA,
+  .bodyB,
+  .close {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
