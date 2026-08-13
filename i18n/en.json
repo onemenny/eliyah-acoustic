@@ -110,6 +110,21 @@
   "commissionLabel": "Commission",
   "commissionHead": "Every system begins with the room.",
   "commissionBody": "Each project is approached individually. A consultation begins with the space itself — its proportions, its materials, and the way it is used.",
+  "consultationForm": {
+    "intro": "Share a few details and our team will follow up to schedule a consultation.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send Inquiry",
+    "pending": "Sending…",
+    "successHead": "Thank you.",
+    "successBody": "Your inquiry has been sent. Our team will be in touch shortly to schedule a consultation.",
+    "errorBody": "Something went wrong sending your inquiry. Please try again, or email us directly at studio@eliyahacoustic.com.",
+    "close": "Close",
+    "subjectPrimary": "New consultation request — Eliyah Acoustic",
+    "subjectSecondary": "New system inquiry — Eliyah Acoustic",
+    "productMessageTemplate": "I'm interested in the {product} system."
+  },
   "footerNote": "Designed, built and tuned in-house",
   "products": {
     "label": "Systems Catalog",

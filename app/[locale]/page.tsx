@@ -45,7 +45,7 @@ export default async function LocaleHome({ params }: { params: Promise<{ locale:
         <Application t={t} />
         <Manifesto t={t} />
         <About t={t} />
-        <Consultation t={t} />
+        <Consultation t={t} locale={locale} />
       </main>
       <Footer t={t} />
     </>

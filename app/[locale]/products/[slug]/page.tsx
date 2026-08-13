@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ProductConsultationCta } from '@/components/catalog/ProductConsultationCta';
 import { ProductGallery } from '@/components/catalog/ProductGallery';
 import { Footer } from '@/components/layout/Footer';
 import { Nav } from '@/components/layout/Nav';
@@ -102,20 +103,14 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
                 </div>
               )}
 
-              {/* Same non-submitting anchor pattern as Consultation.tsx —
-                  cross-page here, so a plain Link back to the homepage's
-                  `#consultation` id is enough: Nav's own "hash on load"
-                  effect (components/layout/Nav.tsx) handles the
-                  scroll-into-view once the homepage mounts. Issue #13 wires
-                  the actual submission. */}
-              <div className={styles.ctaRow}>
-                <Link href={`/${locale}/#consultation`} className={styles.primary}>
-                  {t.cta.primary}
-                </Link>
-                <Link href={`/${locale}/#consultation`} className={styles.secondary}>
-                  {t.cta.secondary}
-                </Link>
-              </div>
+              {/* Issue #13: opens the shared ConsultationDialog in-page with
+                  this product's name/slug attached, rather than navigating
+                  back to the homepage's #consultation section. */}
+              <ProductConsultationCta
+                product={{ name: product.name, slug: product.slug }}
+                t={t}
+                locale={locale}
+              />
             </div>
           </div>
         </section>

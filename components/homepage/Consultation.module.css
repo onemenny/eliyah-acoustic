@@ -71,13 +71,21 @@
   direction: var(--text-dir);
 }
 
+/* .primary/.secondary are <button type="button"> (issue #13, opening
+   ConsultationDialog) rather than <a> — the reset rules restore the plain
+   inline-text look the handoff specs for a link, since buttons otherwise
+   carry UA chrome (border/background/font). */
 .primary {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--aged-brass);
+  font: inherit;
+  cursor: pointer;
   font-family: var(--display);
   font-weight: var(--weight-display-strong);
   font-size: clamp(20px, 2.4vw, 30px);
   color: var(--text-heading);
-  border-bottom: 1px solid var(--aged-brass);
-  padding-bottom: 10px;
+  padding: 0 0 10px;
   transition: color 0.4s ease;
 }
 
@@ -85,7 +93,18 @@
   color: var(--aged-brass);
 }
 
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid var(--aged-brass);
+  outline-offset: 4px;
+}
+
 .secondary {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
   font-size: 11px;
   font-weight: var(--weight-label-strong);
   letter-spacing: 0.22em;
