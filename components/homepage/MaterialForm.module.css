@@ -1,0 +1,109 @@
+/* Docs §5.4 item 12. */
+
+.material {
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+}
+
+.intro {
+  margin-bottom: clamp(44px, 6vw, 80px);
+  max-width: 860px;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as Perception/CoreValue. */
+.label,
+.head,
+.body,
+.tile {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.body[data-revealed='true'],
+.tile[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 26px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(28px, 4.4vw, 58px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.16);
+  margin: 0;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  margin: 30px 0 0;
+  max-width: 44em;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(18px, 2.2vw, 32px);
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--card-raised);
+}
+
+/* Parallax transform target — kept separate from .tile so the transform
+   never fights the tile's own reveal transform, and so the aspect-ratio
+   clipping box isn't itself what's translated (avoids visible seams at tile
+   edges while scrolling). */
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .body,
+  .tile {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .imageWrap {
+    transform: none !important;
+  }
+}

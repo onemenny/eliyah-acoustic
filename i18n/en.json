@@ -82,5 +82,12 @@
   "expLines": ["Conversation fades", "Attention shifts", "Movement begins"],
   "percLabel": "Sound & Individual Perception",
   "percHead": "Sound is experienced differently in every space and by every listener.",
-  "percBody": "A system that performs well in one environment may behave differently in another. Each project is therefore approached individually. The system is developed in relation to the room and the listener. The process includes continuous adjustment and refinement, carried out by us, until the system feels natural within the space and aligned with how the client experiences sound."
+  "percBody": "A system that performs well in one environment may behave differently in another. Each project is therefore approached individually. The system is developed in relation to the room and the listener. The process includes continuous adjustment and refinement, carried out by us, until the system feels natural within the space and aligned with how the client experiences sound.",
+  "matLabel": "Material & Form",
+  "matHead": "Form follows acoustic function.",
+  "matBody": "Materials are selected not only for their structural qualities, but for the way they influence sound behavior. Wood, in particular, is used for its ability to support natural resonance and controlled diffusion. Enclosures, waveguides, and horn structures are designed and built by us to control dispersion, timing, and energy distribution — each system developed as a visible element within the space.",
+  "appLabel": "Application",
+  "appHead": "Systems are developed for private residences and select high-end public environments.",
+  "applications": ["Private homes", "Dedicated listening rooms", "Luxury hospitality spaces", "Premium retail environments"],
+  "appBody": "Each project is designed to support both focused listening and a natural flow of movement within the space. The system becomes an integral part of how the space is experienced and used."
 }
