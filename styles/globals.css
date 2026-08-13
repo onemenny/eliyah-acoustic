@@ -46,3 +46,11 @@ picture,
 video {
   max-width: 100%;
 }
+
+/* Every anchor target (docs §5.4 item 1's `#core`/`#process`/etc., plus
+   Nav's own `#top`) is a `<section id="...">` — clear the fixed Nav's
+   rendered height (kept current via ResizeObserver, see Nav.tsx) so a
+   scrolled-to section's label isn't left tucked under it. */
+section[id] {
+  scroll-margin-top: var(--nav-height);
+}

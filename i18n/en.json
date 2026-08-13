@@ -20,5 +20,19 @@
   "scrollLabel": "Scroll",
   "visionLabel": "Vision",
   "visionHead": "To reintroduce sound as a physical, spatial experience — designed to move correctly within architectural space.",
-  "visionBody": "At Eliyah Acoustic, we build every system as a custom, hand-crafted piece designed specifically for its space — and we tune it ourselves, in-house, as an integral part of the service. This is how each system is brought into full harmony with the space it lives in."
+  "visionBody": "At Eliyah Acoustic, we build every system as a custom, hand-crafted piece designed specifically for its space — and we tune it ourselves, in-house, as an integral part of the service. This is how each system is brought into full harmony with the space it lives in.",
+  "coreLabel": "Core Value",
+  "coreHead": "Sound is not a fixed standard. It is personal, contextual, and shaped by space.",
+  "coreSub": "A system is defined by its relationship with the room. We design, build, and tune systems that are:",
+  "coreItems": [
+    { "n": "01", "text": "Custom-built, from the ground up, for the specific space" },
+    { "n": "02", "text": "Shaped by materials and proportions" },
+    { "n": "03", "text": "Tuned in-house, by us, through listening — never through presets" }
+  ],
+  "coreClose": "The loudspeaker is not the product. It is part of a larger acoustic composition.",
+  "principleLabel": "Experience Principle",
+  "principleHead": "A system is successful when it changes behavior.",
+  "principleBody": "It is not defined by how it sounds, but by what it creates in the space. When it is tuned correctly:",
+  "principleA": "Conversation stops",
+  "principleB": "Movement begins"
 }

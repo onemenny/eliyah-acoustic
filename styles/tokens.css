@@ -61,6 +61,12 @@
 
   /* §5.2: no radius anywhere except the language button. */
   --radius-lang-button: 2px;
+
+  /* Fixed Nav's rendered height, kept in sync by components/layout/Nav.tsx
+     via ResizeObserver (it wraps to more than one row on narrow viewports).
+     This fallback covers the moment before that effect first runs and any
+     no-JS case; consumed by globals.css's anchor `scroll-margin-top`. */
+  --nav-height: 120px;
 }
 
 /* ── Locale-varying tokens ───────────────────────────────────────── */
@@ -87,6 +93,12 @@
      Hero's bottom row), individual text-bearing descendants re-apply this
      to flip back to the locale's real reading direction. */
   --text-dir: ltr;
+
+  /* §5.2: Hebrew heads run ~15% smaller with looser line-height than Latin
+     display type — `--head-scale` multiplies each section's own clamp()
+     heading size, `--head-lh-loose` is left undefined here so components
+     fall back to their own (tighter) EN line-height via `var(..., 1.18)`. */
+  --head-scale: 1;
 }
 
 [data-locale='he'] {
@@ -103,4 +115,7 @@
   --eyebrow-transform: none;
 
   --text-dir: rtl;
+
+  --head-scale: 0.85;
+  --head-lh-loose: 1.42;
 }

@@ -1,0 +1,116 @@
+/* Docs §5.4 item 4. */
+
+.core {
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as Vision.module.css. */
+.label,
+.head,
+.sub,
+.close {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.sub[data-revealed='true'],
+.close[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 46px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(30px, 5vw, 68px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.16);
+  margin: 0;
+  max-width: 16em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.sub {
+  margin: 30px 0 0;
+  max-width: 40em;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: clamp(48px, 7vw, 84px);
+}
+
+.cell {
+  flex: 1 1 240px;
+  background: var(--void-oak);
+  border: 1px solid var(--hairline-strong);
+  padding: 34px 28px 40px;
+}
+
+.cellNumber {
+  /* Fixed 10px/600 in the handoff regardless of locale (unlike the section
+     eyebrow label, which swaps size/weight per §5.2's EN/HE metrics). */
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--aged-brass);
+  margin-bottom: 18px;
+}
+
+.cellText {
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-cell-strong);
+  direction: var(--text-dir);
+}
+
+.close {
+  margin: clamp(44px, 6vw, 72px) 0 0;
+  max-width: 34em;
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: clamp(21px, 2.6vw, 32px);
+  line-height: 1.4;
+  color: var(--text-heading);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .sub,
+  .close {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

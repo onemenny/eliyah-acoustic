@@ -1,0 +1,123 @@
+/* Docs §5.4 item 5. `height:170vh` outer / `sticky` inner — §5.3 requires
+   the root page wrapper use `overflow-x: clip`, not `hidden`, precisely so
+   this sticky band isn't silently broken (see app/[locale]/layout.module.css). */
+
+.principle {
+  position: relative;
+  height: 170vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--card-raised);
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.scrimLinear {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.62) 42%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+/* Directional scrim (docs §5.3): flips 100deg (EN) / 260deg (HE) via the
+   locale-varying --band-angle token in styles/tokens.css — no locale
+   branching here. */
+.scrimDirectional {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    var(--band-angle),
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.34) 52%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.text {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 clamp(32px, 7vw, 110px);
+  max-width: 900px;
+  will-change: transform, opacity;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 26px;
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(28px, 4.8vw, 64px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.14);
+  margin: 0;
+  color: var(--text-heading);
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.body {
+  margin: 26px 0 0;
+  max-width: 32em;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-cell-strong);
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+}
+
+.lines {
+  display: flex;
+  gap: 36px;
+  margin-top: 38px;
+  flex-wrap: wrap;
+}
+
+.lineA,
+.lineB {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: clamp(18px, 2.2vw, 26px);
+}
+
+.lineA {
+  color: var(--text-heading);
+}
+
+.lineB {
+  color: var(--aged-brass);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text,
+  .imageWrap {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

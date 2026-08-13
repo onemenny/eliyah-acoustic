@@ -1,0 +1,73 @@
+/* Docs §5.4 item 3. */
+
+.vision {
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Reveal-on-enter (docs §5.5): resting state is hidden/offset; lib/reveal.ts
+   flips `data-revealed` the first time each element crosses the threshold,
+   staggered via the `--reveal-delay` custom property it also writes. */
+.label,
+.head,
+.body {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.body[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 46px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(30px, 5vw, 68px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.18);
+  margin: 0;
+  max-width: 18em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  margin: clamp(38px, 6vw, 70px) 0 0;
+  max-width: 46em;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .body {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
