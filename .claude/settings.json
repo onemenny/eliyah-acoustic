@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Write|Edit|NotebookEdit|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/menny/dev/EliyaAcustics/.claude/hooks/scope-check.sh",
+            "statusMessage": "Checking operation is scoped to an allowed directory..."
+          }
+        ]
+      }
+    ]
+  }
+}
