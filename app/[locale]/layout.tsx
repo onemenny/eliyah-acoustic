@@ -1,35 +1,63 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { Fraunces, Manrope, Heebo } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { defaultLocale, dirFor, getDictionary, isLocale, locales, type Locale } from '@/i18n';
 import { basePath } from '@/lib/basePath';
 import '@/styles/globals.css';
 import styles from './layout.module.css';
 
-// Self-hosted at build time by next/font — no runtime request to
-// fonts.googleapis.com (docs §4 Performance).
-// Loaded as a variable font: §5.2 requires the `opsz 9..144` axis alongside
-// `wght`, and next/font only exposes extra axes on variable instances. The
-// variable `wght` range covers the 200/300/400 the design calls for.
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  axes: ['opsz'],
-  weight: 'variable',
+// Fonts are vendored as .woff2 under assets/fonts/ and loaded with
+// next/font/local rather than next/font/google. next/font/google resolves font
+// files by fetching CSS from fonts.googleapis.com during the build; a stale
+// edge-cached stylesheet there hands back gstatic URLs that 404, which fails
+// the build outright on a cold CI checkout (no local font cache to mask it).
+// Vendoring removes the build-time network dependency entirely. Files are still
+// self-hosted in the output, so there is no runtime request to Google either
+// (docs §4 Performance).
+//
+// Provenance — regenerate from these sources if a family needs updating:
+//   fraunces-variable-latin.woff2  Fraunces v38, latin subset, variable
+//                                  (opsz 9..144, wght 100..900), from the
+//                                  gstatic URL in
+//                                  fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100..900
+//   manrope-{300,400,500,600}-latin.woff2       Manrope v20, latin
+//   heebo-{200,300,400,500}-hebrew-latin.woff2  Heebo v28, hebrew+latin merged
+//                                  (both via gwfh.mranftl.com, which emits one
+//                                  file per weight covering all chosen subsets
+//                                  — next/font/local has no per-src
+//                                  unicode-range, so Heebo's Hebrew and Latin
+//                                  coverage has to live in a single file)
+
+// §5.2 requires the `opsz 9..144` axis alongside `wght`, so Fraunces stays a
+// variable instance; `font-optical-sizing: auto` (the browser default) drives
+// opsz from the computed font-size. The 100..900 `wght` range covers the
+// 200/300/400 the design calls for.
+const fraunces = localFont({
+  src: [{ path: '../../assets/fonts/fraunces-variable-latin.woff2', weight: '100 900', style: 'normal' }],
   display: 'swap',
   variable: '--font-fraunces',
+  adjustFontFallback: 'Times New Roman',
 });
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+const manrope = localFont({
+  src: [
+    { path: '../../assets/fonts/manrope-300-latin.woff2', weight: '300', style: 'normal' },
+    { path: '../../assets/fonts/manrope-400-latin.woff2', weight: '400', style: 'normal' },
+    { path: '../../assets/fonts/manrope-500-latin.woff2', weight: '500', style: 'normal' },
+    { path: '../../assets/fonts/manrope-600-latin.woff2', weight: '600', style: 'normal' },
+  ],
   display: 'swap',
   variable: '--font-manrope',
 });
 
-const heebo = Heebo({
-  subsets: ['hebrew', 'latin'],
-  weight: ['200', '300', '400', '500'],
+const heebo = localFont({
+  src: [
+    { path: '../../assets/fonts/heebo-200-hebrew-latin.woff2', weight: '200', style: 'normal' },
+    { path: '../../assets/fonts/heebo-300-hebrew-latin.woff2', weight: '300', style: 'normal' },
+    { path: '../../assets/fonts/heebo-400-hebrew-latin.woff2', weight: '400', style: 'normal' },
+    { path: '../../assets/fonts/heebo-500-hebrew-latin.woff2', weight: '500', style: 'normal' },
+  ],
   display: 'swap',
   variable: '--font-heebo',
 });
