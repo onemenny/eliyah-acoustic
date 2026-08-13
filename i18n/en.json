@@ -115,6 +115,11 @@
     "label": "Systems Catalog",
     "head": "Five fixed models, each a starting point for a fully custom system.",
     "intro": "Each model shown here is a reference point — every system we build is ultimately shaped, in dimensions and materials, to its space.",
-    "priceFrom": "From"
+    "priceFrom": "From",
+    "backToCatalog": "Back to the Catalog",
+    "notFoundHead": "This model isn't available",
+    "notFoundBody": "The system you're looking for may have moved or is no longer part of the catalog.",
+    "optionsLabel": "Available Configurations",
+    "viewImage": "View image"
   }
 }

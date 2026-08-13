@@ -5,6 +5,30 @@
   flex-direction: column;
   background: var(--card-raised);
   border: 1px solid var(--hairline);
+  color: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--underline-brass);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--aged-brass);
+  outline-offset: 4px;
+}
+
+/* globals.css's `a:hover { color: var(--aged-brass) }` outranks these
+   elements' own single-class color rules by specificity now that `.card`
+   is the anchor itself — pin the resting colors back explicitly so hovering
+   the card doesn't flash its text brass (that's reserved for the indicative
+   price, which is already brass at rest). */
+.card:hover .name {
+  color: var(--text-heading);
+}
+
+.card:hover .description {
+  color: var(--text-body);
 }
 
 .imageWrap {

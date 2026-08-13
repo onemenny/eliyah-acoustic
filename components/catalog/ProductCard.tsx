@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import type { Dictionary, Locale } from '@/i18n';
 import { formatIndicativePrice } from '@/lib/formatPrice';
@@ -16,12 +17,15 @@ type Props = {
  * description, indicative price — no buy/cart affordance (§2.5). Static —
  * no reveal-on-scroll/parallax, unlike the homepage's sections; the doc
  * doesn't call for one here and a plain grid keeps this first non-homepage
- * page a server component. Deliberately not a link: there's no product
- * detail page yet (separate issue) for it to point to.
+ * page a server component. The whole card links to its detail page
+ * (`/products/[slug]`, issue #11) via a plain `next/link` wrap — an
+ * `aria-label` carries the product name for screen readers rather than a
+ * separate visible "View" label, so the card keeps its pure-information
+ * visual with no new CTA-style chrome (§2.5).
  */
 export function ProductCard({ product, locale, t }: Props) {
   return (
-    <article className={styles.card}>
+    <Link href={`/${locale}/products/${product.slug}/`} className={styles.card} aria-label={product.name}>
       <div className={styles.imageWrap}>
         <Image
           src={product.images[0]}
@@ -39,6 +43,6 @@ export function ProductCard({ product, locale, t }: Props) {
           {t.products.priceFrom} {formatIndicativePrice(product.basePriceCents, product.baseCurrency, locale)}
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

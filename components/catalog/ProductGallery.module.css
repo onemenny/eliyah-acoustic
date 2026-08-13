@@ -1,0 +1,60 @@
+/* Docs §3.4 `catalog/`, issue #11. Thumbnail row is RTL-aware via
+   `direction: var(--text-dir)`, not a manual index reversal (§3.2/§5.3). */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mainWrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--card-raised);
+}
+
+.mainImage {
+  object-fit: cover;
+}
+
+.thumbRow {
+  display: flex;
+  direction: var(--text-dir);
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.thumb {
+  position: relative;
+  flex: 0 0 auto;
+  width: 76px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--card-raised);
+  border: 1px solid var(--hairline);
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.thumb:hover,
+.thumb:focus-visible {
+  opacity: 0.85;
+}
+
+.thumbActive {
+  opacity: 1;
+  border-color: var(--aged-brass);
+}
+
+.thumbImage {
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb {
+    transition: none;
+  }
+}

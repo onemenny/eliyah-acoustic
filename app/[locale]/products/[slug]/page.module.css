@@ -1,0 +1,155 @@
+/* Docs §3.4 `app/[locale]/products/[slug]/`, issue #11. Mirrors the listing
+   page's top padding (../products.module.css) — no Hero above this page, so
+   the top edge has to clear `--nav-height` itself. CTA visual language
+   (underline primary / tracked-uppercase secondary) matches
+   components/homepage/Consultation.module.css exactly — same brand CTA, not
+   a new button style. */
+
+.product {
+  padding: calc(var(--nav-height) + var(--section-y-tight)) var(--page-padding-x) var(--section-y-tight);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-block;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: clamp(32px, 5vw, 56px);
+  direction: var(--text-dir);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+}
+
+.info {
+  direction: var(--text-dir);
+}
+
+.name {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: calc(clamp(28px, 4vw, 44px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.2);
+  margin: 0 0 18px;
+  color: var(--text-heading);
+}
+
+.description {
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  margin: 0 0 24px;
+  max-width: 44em;
+}
+
+.price {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.variants {
+  border-top: 1px solid var(--hairline);
+  padding-top: 24px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.variantsLabel {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.variantCategory {
+  margin-bottom: 18px;
+}
+
+.variantCategory:last-child {
+  margin-bottom: 0;
+}
+
+.variantCategoryLabel {
+  font-size: 13px;
+  font-weight: var(--weight-label-strong);
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.variantOptions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: var(--lh);
+  color: var(--text-body);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.primary {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: clamp(17px, 1.6vw, 21px);
+  color: var(--text-heading);
+  border-bottom: 1px solid var(--aged-brass);
+  padding-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+.primary:hover {
+  color: var(--aged-brass);
+}
+
+.secondary {
+  font-size: 11px;
+  font-weight: var(--weight-label-strong);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-body);
+  transition: color 0.4s ease;
+}
+
+.secondary:hover {
+  color: var(--aged-brass);
+}
+
+.notFound {
+  padding: calc(var(--nav-height) + var(--section-y-tight)) var(--page-padding-x) var(--section-y-tight);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  direction: var(--text-dir);
+}
+
+.notFoundHead {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(28px, 4vw, 44px) * var(--head-scale));
+  color: var(--text-heading);
+  margin: 0 0 16px;
+}
+
+.notFoundBody {
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  margin: 0 0 24px;
+}
