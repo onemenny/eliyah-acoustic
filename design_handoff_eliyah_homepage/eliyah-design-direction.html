@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliyah Acoustic — Design Direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #181310;
+    --card: #201914;
+    --travertine: #E9E2D3;
+    --walnut: #6B4E36;
+    --aubergine: #3A2142;
+    --brass: #B8935F;
+    --smoke: #A39880;
+    --hairline: rgba(233, 226, 211, 0.12);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--void); }
+  .board {
+    background: var(--void);
+    color: var(--travertine);
+    font-family: 'Manrope', sans-serif;
+    padding: 64px 40px 80px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(34px, 5.5vw, 54px);
+    letter-spacing: 0.01em;
+    margin: 0 0 8px;
+  }
+  .sub {
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-bottom: 56px;
+  }
+  section { margin-bottom: 60px; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 14px;
+    margin-bottom: 26px;
+  }
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .swatch {
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--hairline);
+  }
+  .swatch-color { height: 100px; }
+  .swatch-info { padding: 14px 16px; background: var(--card); }
+  .swatch-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .swatch-hex { font-size: 11px; color: var(--smoke); letter-spacing: 0.04em; margin-bottom: 10px; }
+  .swatch-use { font-size: 11.5px; color: var(--smoke); line-height: 1.55; }
+
+  .type-sample {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    padding: 56px 40px;
+    text-align: center;
+  }
+  .type-display {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(38px, 6.5vw, 66px);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  .type-tagline {
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--smoke);
+    margin-top: 16px;
+  }
+  .type-body {
+    max-width: 480px;
+    margin: 36px auto 0;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--travertine);
+    text-align: left;
+    border-top: 1px solid var(--hairline);
+    padding-top: 26px;
+  }
+  .type-body strong { color: var(--brass); font-weight: 600; }
+  .type-roles {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .type-role { font-size: 11px; color: var(--smoke); }
+  .type-role b { color: var(--travertine); font-weight: 600; }
+
+  .signature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  .signature-visual {
+    height: 240px;
+    border-radius: 3px;
+    background: linear-gradient(150deg, #C9A56E 0%, #6B4E36 34%, #3A2142 72%, #181310 100%);
+    border: 1px solid var(--hairline);
+  }
+  .signature-text p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--smoke);
+    margin: 0;
+  }
+  .signature-text strong { color: var(--travertine); font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .signature { grid-template-columns: 1fr; }
+    .board { padding: 48px 22px 64px; }
+    .type-sample { padding: 40px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="board">
+  <div class="eyebrow">Design Direction — Draft 1</div>
+  <h1>Eliyah Acoustic</h1>
+  <div class="sub">Sound, Shaped by Space</div>
+
+  <section>
+    <div class="section-label">Palette</div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#181310;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Void Oak</div>
+          <div class="swatch-hex">#181310</div>
+          <div class="swatch-use">Primary background — warm near-black, never tech-black</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E9E2D3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Travertine</div>
+          <div class="swatch-hex">#E9E2D3</div>
+          <div class="swatch-use">Light sections, primary text on dark</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6B4E36;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Walnut</div>
+          <div class="swatch-hex">#6B4E36</div>
+          <div class="swatch-use">Wood-tone accent — dividers, borders, image grading</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3A2142;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Aubergine</div>
+          <div class="swatch-hex">#3A2142</div>
+          <div class="swatch-use">The "deepness" — shadow falloff, hover states, never a flat backdrop</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B8935F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Aged Brass</div>
+          <div class="swatch-hex">#B8935F</div>
+          <div class="swatch-use">Rare accent — labels, CTA underline, nothing else</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Typography</div>
+    <div class="type-sample">
+      <div class="type-display">Eliyah Acoustic</div>
+      <div class="type-tagline">Sound, Shaped by Space</div>
+      <div class="type-body">Every system is designed, built, and tuned entirely in-house — a custom, hand-crafted piece brought into full harmony with the space it lives in. Set in <strong>Fraunces</strong> for display, <strong>Manrope</strong> for body and UI — both free, both licensable for commercial use without friction.</div>
+      <div class="type-roles">
+        <div class="type-role"><b>Fraunces</b> · display, logotype-adjacent</div>
+        <div class="type-role"><b>Manrope</b> · body, labels, UI</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-label">Signature Move</div>
+    <div class="signature">
+      <div class="signature-visual"></div>
+      <div class="signature-text">
+        <p><strong>Duotone photography.</strong> Every product and interior photo carries the same warm-brass-to-aubergine grade — never a flat, neutral shot. It's the visual version of what the brand already does to sound: shaping it around the space instead of leaving it raw. This is the one place color does heavy lifting; everywhere else, the interface stays quiet.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

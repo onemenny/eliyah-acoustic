@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200;9..144,300;9..144,400&family=Manrope:wght@300;400;500;600&family=Heebo:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #181310; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #3A2142; color: #E9E2D3; }
+  a { color: #E9E2D3; text-decoration: none; }
+  a:hover { color: #B8935F; }
+  image-slot { display: block; width: 100%; height: 100%; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div dir="{{ dir }}" style="--display:{{ displayFont }};--body:{{ bodyFont }};--lh:{{ lineHeight }};background:#181310;color:#E9E2D3;font-family:var(--body);font-weight:300;overflow-x:clip">
+
+  <nav data-nav="1" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 40px;background:rgba(24,19,16,0.28);backdrop-filter:blur(14px);border-bottom:1px solid rgba(233,226,211,0.001);transition:background 0.6s ease, border-color 0.6s ease, transform 0.6s cubic-bezier(.22,.61,.36,1)">
+    <a href="#top" style="display:flex;flex-direction:column;gap:3px;line-height:1">
+      <span style="font-family:'Fraunces',serif;font-weight:300;font-size:17px;letter-spacing:0.22em;text-transform:uppercase">Eliyah</span>
+      <span style="font-family:'Manrope',sans-serif;font-size:8px;font-weight:500;letter-spacing:0.42em;text-transform:uppercase;color:#A39880">Acoustic</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:30px">
+      <a href="#core" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">{{ navValue }}</a>
+      <a href="#process" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">{{ navProcess }}</a>
+      <a href="#approach" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">{{ navApproach }}</a>
+      <a href="#material" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">{{ navSystems }}</a>
+      <a href="#about" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase">{{ navAbout }}</a>
+      <a href="#consultation" style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#B8935F;border-bottom:1px solid rgba(184,147,95,0.45);padding-bottom:3px" style-hover="border-bottom-color:#B8935F;color:#E9E2D3">{{ ctaPrimary }}</a>
+      <button onClick="{{ toggleLang }}" style="background:none;border:1px solid rgba(233,226,211,0.22);color:#E9E2D3;font-family:'Manrope',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:7px 11px;cursor:pointer" style-hover="border-color:#B8935F;color:#B8935F">{{ langLabel }}</button>
+    </div>
+  </nav>
+
+  <section id="top" data-screen-label="Hero" style="position:relative;height:100vh;min-height:640px;width:100%;overflow:hidden;background:#181310">
+    <image-slot id="eliyah-hero" shape="rect" fit="cover" data-parallax="0.10" src="images/room-wall-system.jpg" placeholder="full-bleed — system in situ, real room"></image-slot>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0.52) 0%,rgba(0,0,0,0.42) 34%,rgba(0,0,0,0.46) 62%,rgba(0,0,0,0.78) 100%)"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(closest-side at 50% 48%, rgba(0,0,0,0.62), rgba(0,0,0,0.28) 62%, rgba(0,0,0,0) 100%)"></div>
+    <div data-hero-text="1" style="position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;will-change:transform,opacity">
+      <div style="font-family:'Fraunces',serif;font-weight:200;font-size:clamp(46px,9vw,132px);line-height:0.95;letter-spacing:0.14em;text-transform:uppercase;color:#E9E2D3;text-shadow:0 24px 80px rgba(0,0,0,0.6)">Eliyah</div>
+      <div style="margin-top:14px;font-family:'Manrope',sans-serif;font-size:clamp(11px,1.5vw,16px);font-weight:400;letter-spacing:0.58em;text-transform:uppercase;color:#E9E2D3;text-shadow:0 8px 30px rgba(0,0,0,0.55)">Acoustic</div>
+      <div style="margin-top:34px;width:1px;height:52px;background:linear-gradient(#B8935F,rgba(184,147,95,0))"></div>
+      <div style="margin-top:22px;font-size:12px;font-weight:500;letter-spacing:0.28em;color:#B8935F;text-transform:uppercase">{{ tagline }}</div>
+    </div>
+    <div data-hero-foot="1" style="position:absolute;left:40px;bottom:34px;right:40px;pointer-events:none;display:flex;align-items:flex-end;justify-content:space-between;gap:24px">
+      <div style="font-size:12px;line-height:1.8;color:rgba(233,226,211,0.86);max-width:360px;text-shadow:0 6px 24px rgba(0,0,0,0.7)">{{ positioning }}</div>
+      <div style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(233,226,211,0.62)">Scroll</div>
+    </div>
+  </section>
+
+  <section id="vision" data-screen-label="Vision" style="padding:clamp(90px,13vw,180px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:46px">{{ visionLabel }}</div>
+      <h1 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(30px,5vw,68px);line-height:1.18;margin:0;max-width:18em;text-wrap:pretty">{{ visionHead }}</h1>
+      <p data-reveal="2" style="margin:clamp(38px,6vw,70px) 0 0;max-width:46em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ visionBody }}</p>
+    </div>
+  </section>
+
+  <section id="core" data-screen-label="Core Value" style="padding:clamp(90px,13vw,180px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:46px">{{ coreLabel }}</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(30px,5vw,68px);line-height:1.16;margin:0;max-width:16em;text-wrap:pretty">{{ coreHead }}</h2>
+      <p data-reveal="2" style="margin:30px 0 0;max-width:40em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ coreSub }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1px;margin-top:clamp(48px,7vw,84px)">
+        <sc-for list="{{ coreItems }}" as="item" hint-placeholder-count="3">
+          <div style="flex:1 1 240px;background:#181310;border:1px solid rgba(233,226,211,0.12);padding:34px 28px 40px">
+            <div style="font-size:10px;font-weight:600;letter-spacing:0.22em;color:#B8935F;margin-bottom:18px">{{ item.n }}</div>
+            <div style="font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.86)">{{ item.text }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <p data-reveal="3" style="margin:clamp(44px,6vw,72px) 0 0;max-width:34em;font-family:var(--display);font-weight:200;font-size:clamp(21px,2.6vw,32px);line-height:1.4;color:#E9E2D3">{{ coreClose }}</p>
+    </div>
+  </section>
+
+  <section id="principle" data-screen-label="Experience Principle" style="position:relative;height:170vh">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:#201914">
+      <image-slot id="eliyah-principle" shape="rect" fit="cover" data-parallax="0.14" src="images/burl-pair-wide.jpg" placeholder="full-bleed — systems in the workshop"></image-slot>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,0.30) 0%,rgba(0,0,0,0.62) 42%,rgba(0,0,0,0.78) 100%)"></div>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient({{ bandAngle }},rgba(0,0,0,0.62) 0%,rgba(0,0,0,0.34) 52%,rgba(0,0,0,0) 100%)"></div>
+      <div data-material-text="1" style="position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(32px,7vw,110px);max-width:900px;will-change:transform,opacity">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:26px">{{ principleLabel }}</div>
+        <h2 style="font-family:var(--display);font-weight:200;font-size:clamp(28px,4.8vw,64px);line-height:1.14;margin:0;color:#E9E2D3;text-shadow:0 20px 60px rgba(0,0,0,0.6)">{{ principleHead }}</h2>
+        <p style="margin:26px 0 0;max-width:32em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.86);text-shadow:0 6px 30px rgba(0,0,0,0.6)">{{ principleBody }}</p>
+        <div style="display:flex;gap:36px;margin-top:38px;flex-wrap:wrap">
+          <div style="font-family:var(--display);font-weight:300;font-size:clamp(18px,2.2vw,26px);color:#E9E2D3">{{ principleA }}</div>
+          <div style="font-family:var(--display);font-weight:300;font-size:clamp(18px,2.2vw,26px);color:#B8935F">{{ principleB }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" data-screen-label="Structure of Service" style="padding:clamp(90px,13vw,170px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="margin-bottom:clamp(44px,6vw,80px);max-width:800px">
+        <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:26px">{{ serviceLabel }}</div>
+        <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(28px,4.4vw,58px);line-height:1.16;margin:0">{{ serviceHead }}</h2>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:80px minmax(150px,1.1fr) 2fr;gap:clamp(16px,4vw,56px);align-items:start;padding:34px 20px 36px;border-top:1px solid rgba(233,226,211,0.14);transition:background 0.5s ease" style-hover="background:linear-gradient(90deg,rgba(58,33,66,0.6),rgba(24,19,16,0))">
+            <div style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;color:#B8935F;padding-top:8px">{{ step.n }}</div>
+            <h3 style="margin:0;font-family:var(--display);font-weight:300;font-size:clamp(20px,2.3vw,29px);line-height:1.3">{{ step.title }}</h3>
+            <p style="margin:0;font-size:14px;line-height:var(--lh);color:rgba(233,226,211,0.68);max-width:46em">{{ step.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="scope" data-screen-label="Project Scope" style="padding:clamp(84px,11vw,150px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,90px);align-items:start">
+      <div>
+        <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:30px">{{ scopeLabel }}</div>
+        <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.6vw,46px);line-height:1.2;margin:0;text-wrap:pretty">{{ scopeHead }}</h2>
+      </div>
+      <div data-reveal="2">
+        <div style="font-size:14px;line-height:var(--lh);color:rgba(233,226,211,0.72);margin-bottom:22px">{{ scopeIntro }}</div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ scopeItems }}" as="item" hint-placeholder-count="3">
+            <div style="background:#181310;border-top:1px solid rgba(233,226,211,0.14);padding:20px 4px;font-size:13px;letter-spacing:0.04em;color:rgba(233,226,211,0.86)">{{ item }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio-intro" data-screen-label="Eliyah Acoustic" style="padding:clamp(90px,13vw,170px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:44px">Eliyah Acoustic</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(28px,4.6vw,62px);line-height:1.14;margin:0;max-width:15em;text-wrap:pretty">{{ studioHead }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,80px);margin-top:clamp(44px,6vw,84px);max-width:1000px">
+        <p data-reveal="2" style="margin:0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ studioA }}</p>
+        <p data-reveal="3" style="margin:0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ studioB }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" data-screen-label="Approach" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));align-items:stretch;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="position:relative;min-height:min(88vh,760px);overflow:hidden;background:#201914">
+      <image-slot id="eliyah-approach" shape="rect" fit="cover" data-parallax="0.09" src="images/cherry-single.jpg" placeholder="horn / enclosure detail"></image-slot>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,8vw,110px) clamp(32px,6vw,96px)">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:32px">{{ approachLabel }}</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.4vw,46px);line-height:1.24;margin:0;text-wrap:pretty">{{ approachHead }}</h2>
+      <p data-reveal="2" style="margin:30px 0 0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72);max-width:44em">{{ approachBody }}</p>
+      <div data-reveal="3" style="display:flex;flex-wrap:wrap;gap:1px;margin-top:42px">
+        <sc-for list="{{ roomFactors }}" as="factor" hint-placeholder-count="5">
+          <div style="flex:1 1 150px;background:#181310;border:1px solid rgba(233,226,211,0.12);padding:20px 18px 22px;font-size:11px;font-weight:500;letter-spacing:0.1em;color:rgba(233,226,211,0.82)">{{ factor }}</div>
+        </sc-for>
+      </div>
+      <p data-reveal="4" style="margin:32px 0 0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72);max-width:44em">{{ approachClose }}</p>
+    </div>
+  </section>
+
+  <section id="experience" data-screen-label="Experience" style="padding:clamp(90px,12vw,160px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,7vw,96px);align-items:center">
+      <div>
+        <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:28px">{{ expLabel }}</div>
+        <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.6vw,50px);line-height:1.18;margin:0;text-wrap:pretty">{{ expHead }}</h2>
+        <p data-reveal="2" style="margin:26px 0 0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72);max-width:38em">{{ expBody }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:rgba(233,226,211,0.12)">
+        <sc-for list="{{ expLines }}" as="line" hint-placeholder-count="3">
+          <div style="background:#181310;padding:30px 26px;font-family:var(--display);font-weight:300;font-size:clamp(19px,2.3vw,29px);color:#E9E2D3">{{ line }}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="perception" data-screen-label="Perception" style="padding:clamp(84px,11vw,150px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,90px);align-items:start">
+      <div>
+        <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:28px">{{ percLabel }}</div>
+        <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.6vw,46px);line-height:1.2;margin:0;text-wrap:pretty">{{ percHead }}</h2>
+      </div>
+      <p data-reveal="2" style="margin:0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ percBody }}</p>
+    </div>
+  </section>
+
+  <section id="material" data-screen-label="Material &amp; Form" style="padding:clamp(90px,13vw,170px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="margin-bottom:clamp(44px,6vw,80px);max-width:860px">
+        <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:26px">{{ matLabel }}</div>
+        <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(28px,4.4vw,58px);line-height:1.16;margin:0">{{ matHead }}</h2>
+        <p data-reveal="2" style="margin:30px 0 0;max-width:44em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ matBody }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2.2vw,32px)">
+        <div data-reveal="0" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-1" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-cherry-wave.jpg" placeholder="system portrait"></image-slot>
+        </div>
+        <div data-reveal="1" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-2" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-burl-oval.jpg" placeholder="system portrait"></image-slot>
+        </div>
+        <div data-reveal="2" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-3" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-oak-steel.jpg" placeholder="system portrait"></image-slot>
+        </div>
+        <div data-reveal="0" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-4" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-steel-stack.jpg" placeholder="system portrait"></image-slot>
+        </div>
+        <div data-reveal="1" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-5" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-ivory-column.jpg" placeholder="system portrait"></image-slot>
+        </div>
+        <div data-reveal="2" style="position:relative;aspect-ratio:3/4;overflow:hidden;background:#201914">
+          <image-slot id="eliyah-sys-6" shape="rect" fit="cover" data-parallax="0.05" src="images/sys-black-octagon.jpg" placeholder="system portrait"></image-slot>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="application" data-screen-label="Application" style="padding:clamp(84px,11vw,150px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:28px">{{ appLabel }}</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.8vw,50px);line-height:1.18;margin:0;max-width:17em;text-wrap:pretty">{{ appHead }}</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:1px;margin-top:clamp(40px,6vw,72px)">
+        <sc-for list="{{ applications }}" as="item" hint-placeholder-count="4">
+          <div style="flex:1 1 220px;background:#181310;border:1px solid rgba(233,226,211,0.12);padding:30px 24px 34px;font-size:14px;line-height:1.7;color:rgba(233,226,211,0.86)">{{ item }}</div>
+        </sc-for>
+      </div>
+      <p data-reveal="2" style="margin:36px 0 0;max-width:44em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ appBody }}</p>
+    </div>
+  </section>
+
+  <section id="manifesto" data-screen-label="Manifesto" style="padding:clamp(90px,13vw,180px) 40px;border-bottom:1px solid rgba(233,226,211,0.10)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:46px">{{ maniLabel }}</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(34px,6vw,86px);line-height:1.1;margin:0;max-width:14em">{{ maniHead }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,80px);margin-top:clamp(46px,7vw,88px);max-width:1000px">
+        <p data-reveal="2" style="margin:0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ maniA }}</p>
+        <p data-reveal="3" style="margin:0;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ maniB }}</p>
+      </div>
+      <p data-reveal="4" style="margin:clamp(44px,6vw,72px) 0 0;max-width:24em;font-family:var(--display);font-weight:200;font-size:clamp(22px,3vw,38px);line-height:1.35;color:#E9E2D3">{{ maniClose }}</p>
+    </div>
+  </section>
+
+  <section id="about" data-screen-label="About" style="background:#E9E2D3;color:#181310;padding:clamp(84px,11vw,150px) 40px">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,88px);align-items:start">
+        <div data-reveal="0" style="position:relative;aspect-ratio:4/5;overflow:hidden;background:#D8D0BE">
+          <image-slot id="eliyah-about" shape="rect" fit="cover" data-parallax="0.07" src="images/sys-cherry-tall.jpg" placeholder="the team in the workshop — portrait crop"></image-slot>
+        </div>
+        <div>
+          <div data-reveal="1" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#6B4E36;margin-bottom:28px">{{ aboutLabel }}</div>
+          <h2 data-reveal="2" style="font-family:var(--display);font-weight:200;font-size:clamp(26px,3.8vw,50px);line-height:1.18;margin:0">{{ aboutHead }}</h2>
+          <p data-reveal="3" style="margin:28px 0 0;font-size:15px;line-height:var(--lh);color:rgba(24,19,16,0.78)">{{ aboutA }}</p>
+          <p data-reveal="3" style="margin:20px 0 0;font-size:15px;line-height:var(--lh);color:rgba(24,19,16,0.78)">{{ aboutB }}</p>
+          <div data-reveal="4" style="margin-top:34px;padding:30px 0 0;border-top:1px solid rgba(24,19,16,0.16)">
+            <p style="margin:0;font-family:var(--display);font-weight:200;font-size:clamp(19px,2.2vw,26px);line-height:1.5;color:#181310;text-wrap:pretty">{{ aboutQuote }}</p>
+            <p style="margin:16px 0 0;font-size:13px;line-height:1.85;color:rgba(24,19,16,0.6)">{{ aboutQuoteSub }}</p>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ showTeam }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:clamp(52px,8vw,104px);padding-top:34px;border-top:1px solid rgba(24,19,16,0.16)">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#6B4E36;margin-bottom:30px">{{ teamLabel }}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,4vw,56px)">
+            <sc-for list="{{ team }}" as="member" hint-placeholder-count="3">
+              <div>
+                <div style="font-family:var(--display);font-weight:300;font-size:22px;letter-spacing:0.01em">{{ member.name }}</div>
+                <div style="margin-top:10px;font-size:12px;line-height:1.8;letter-spacing:0.04em;color:rgba(24,19,16,0.62)">{{ member.role }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="consultation" data-screen-label="Consultation" style="padding:clamp(90px,13vw,170px) 40px clamp(70px,9vw,120px);background:#181310">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal="0" style="font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:#B8935F;margin-bottom:36px">{{ commissionLabel }}</div>
+      <h2 data-reveal="1" style="font-family:var(--display);font-weight:200;font-size:clamp(30px,5.4vw,78px);line-height:1.08;margin:0;max-width:15em">{{ commissionHead }}</h2>
+      <p data-reveal="2" style="margin:32px 0 0;max-width:34em;font-size:15px;line-height:var(--lh);color:rgba(233,226,211,0.72)">{{ commissionBody }}</p>
+      <div data-reveal="3" style="display:flex;flex-wrap:wrap;align-items:center;gap:34px;margin-top:50px">
+        <a href="#consultation" style="font-family:var(--display);font-weight:300;font-size:clamp(20px,2.4vw,30px);color:#E9E2D3;border-bottom:1px solid #B8935F;padding-bottom:10px" style-hover="color:#B8935F">{{ ctaPrimary }}</a>
+        <a href="#top" style="font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(233,226,211,0.72)" style-hover="color:#B8935F">{{ ctaSecondary }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:44px 40px 52px;border-top:1px solid rgba(233,226,211,0.10);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
+    <div>
+      <div style="font-family:'Fraunces',serif;font-weight:200;font-size:22px;letter-spacing:0.2em;text-transform:uppercase;color:#E9E2D3">Eliyah</div>
+      <div style="margin-top:6px;font-family:'Manrope',sans-serif;font-size:9px;font-weight:500;letter-spacing:0.42em;text-transform:uppercase;color:#A39880">Acoustic</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:44px;font-size:12px;line-height:1.9;color:rgba(233,226,211,0.6)">
+      <div>studio@eliyahacoustic.com<br>Tel Aviv</div>
+      <div>{{ footerNote }}<br>© 2026 Eliyah Acoustic</div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showTeam&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot;}
+}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+
+  componentDidMount() {
+    try {
+      const saved = localStorage.getItem('eliyah-lang');
+      if (saved === 'he' || saved === 'en') this.setState({ lang: saved });
+    } catch (e) {}
+    this.initScroll();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.lang !== this.state.lang) setTimeout(() => this.refresh(), 0);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._io) this._io.disconnect();
+    this._inited = false;
+  }
+
+  initScroll() {
+    if (this._inited) return;
+    this._inited = true;
+    this._reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._onScroll = () => {
+      if (this._rafId) return;
+      this._rafId = requestAnimationFrame(() => { this._rafId = null; this.frame(); });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this.refresh();
+  }
+
+  refresh() {
+    const ease = 'cubic-bezier(.22,.61,.36,1)';
+    if (this._io) this._io.disconnect();
+    if (!this._reduced && 'IntersectionObserver' in window) {
+      const els = Array.from(document.querySelectorAll('[data-reveal]'));
+      const vh = window.innerHeight;
+      els.forEach((el) => {
+        el.style.transition = 'opacity 1.05s ' + ease + ', transform 1.05s ' + ease;
+        el.style.transitionDelay = ((parseInt(el.getAttribute('data-reveal'), 10) || 0) * 90) + 'ms';
+        const r = el.getBoundingClientRect();
+        if (r.top > vh * 0.85) {
+          el.style.opacity = '0';
+          el.style.transform = 'translate3d(0,32px,0)';
+        } else {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          this._io.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+      els.forEach((el) => this._io.observe(el));
+    }
+    this._parallax = Array.from(document.querySelectorAll('[data-parallax]'));
+    this._parallax.forEach((el) => { el.style.willChange = 'transform'; });
+    this._heroText = document.querySelector('[data-hero-text]');
+    this._heroFoot = document.querySelector('[data-hero-foot]');
+    this._bandText = document.querySelector('[data-material-text]');
+    this._nav = document.querySelector('[data-nav]');
+    this.frame();
+  }
+
+  frame() {
+    const vh = window.innerHeight;
+    const y = window.scrollY || window.pageYOffset || 0;
+    if (!this._reduced) {
+      (this._parallax || []).forEach((el) => {
+        const host = el.parentElement;
+        if (!host) return;
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -240 || r.top > vh + 240) return;
+        const speed = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+        const offset = (r.top + r.height / 2 - vh / 2) * -speed;
+        el.style.transform = 'scale(1.16) translate3d(0,' + offset.toFixed(1) + 'px,0)';
+      });
+      if (this._heroText) {
+        const p = Math.min(1, Math.max(0, y / (vh * 0.7)));
+        this._heroText.style.opacity = String(1 - p);
+        this._heroText.style.transform = 'translate3d(0,' + (p * 64).toFixed(1) + 'px,0) scale(' + (1 - p * 0.04).toFixed(3) + ')';
+      }
+      if (this._heroFoot) {
+        this._heroFoot.style.opacity = String(Math.min(1, Math.max(0, 1 - y / (vh * 0.35))));
+      }
+      if (this._bandText && this._bandText.parentElement && this._bandText.parentElement.parentElement) {
+        const r = this._bandText.parentElement.parentElement.getBoundingClientRect();
+        const span = Math.max(1, r.height - vh);
+        const p = Math.min(1, Math.max(0, -r.top / span));
+        this._bandText.style.opacity = String(p < 0.74 ? 1 : Math.max(0, 1 - (p - 0.74) / 0.26));
+        this._bandText.style.transform = 'translate3d(0,' + (p * -60).toFixed(1) + 'px,0)';
+      }
+    }
+    if (this._nav) {
+      const past = y > vh * 0.8;
+      this._nav.style.background = past ? 'rgba(24,19,16,0.92)' : 'rgba(24,19,16,0.28)';
+      this._nav.style.borderBottomColor = past ? 'rgba(233,226,211,0.12)' : 'rgba(233,226,211,0.001)';
+      const down = y > (this._lastY || 0) + 4 && y > vh;
+      const up = y < (this._lastY || 0) - 4;
+      if (down) this._nav.style.transform = 'translate3d(0,-105%,0)';
+      else if (up || y < vh) this._nav.style.transform = 'none';
+      this._lastY = y;
+    }
+  }
+
+  copy() {
+    return {
+      en: {
+        dir: 'ltr', langLabel: 'עב',
+        navValue: 'Core Value', navProcess: 'Process', navApproach: 'Approach', navSystems: 'Systems', navAbout: 'About',
+        ctaPrimary: 'Request a Consultation', ctaSecondary: 'Begin a System',
+        tagline: 'Sound, Shaped by Space',
+        positioning: 'Custom-built sound systems for high-end architectural spaces — designed, built, and tuned entirely in-house.',
+        visionLabel: 'Vision',
+        visionHead: 'To reintroduce sound as a physical, spatial experience — designed to move correctly within architectural space.',
+        visionBody: 'At Eliyah Acoustic, we build every system as a custom, hand-crafted piece designed specifically for its space — and we tune it ourselves, in-house, as an integral part of the service. This is how each system is brought into full harmony with the space it lives in.',
+        coreLabel: 'Core Value',
+        coreHead: 'Sound is not a fixed standard. It is personal, contextual, and shaped by space.',
+        coreSub: 'A system is defined by its relationship with the room. We design, build, and tune systems that are:',
+        coreItems: [
+          { n: '01', text: 'Custom-built, from the ground up, for the specific space' },
+          { n: '02', text: 'Shaped by materials and proportions' },
+          { n: '03', text: 'Tuned in-house, by us, through listening — never through presets' }
+        ],
+        coreClose: 'The loudspeaker is not the product. It is part of a larger acoustic composition.',
+        principleLabel: 'Experience Principle',
+        principleHead: 'A system is successful when it changes behavior.',
+        principleBody: 'It is not defined by how it sounds, but by what it creates in the space. When it is tuned correctly:',
+        principleA: 'Conversation stops', principleB: 'Movement begins',
+        serviceLabel: 'Structure of Service',
+        serviceHead: 'Every project is designed, built, and tuned entirely in-house.',
+        steps: [
+          { n: '01', title: 'Spatial Analysis', body: 'Understanding the room: dimensions, materials, acoustic behavior.' },
+          { n: '02', title: 'System Architecture', body: 'Defining how sound moves within the space.' },
+          { n: '03', title: 'Fabrication', body: 'Every system is custom-built by hand, in our own workshop, designed and constructed specifically for its space.' },
+          { n: '04', title: 'Integration', body: 'Positioned as part of the architectural language of the space.' },
+          { n: '05', title: 'Tuning', body: 'Final on-site calibration, performed personally by our team as an integral part of the service — refined entirely through listening, until the system is in complete harmony with its space.' }
+        ],
+        scopeLabel: 'Project Scope',
+        scopeHead: 'Projects begin around ₪70,000 and can reach ₪400,000 and above.',
+        scopeIntro: 'Final pricing depends on:',
+        scopeItems: ['System scale', 'Architectural complexity', 'Level of customization'],
+        studioHead: 'Eliyah Acoustic approaches sound as something that is shaped within space.',
+        studioA: 'Our work is built on years of listening — to systems that were not only heard, but physically experienced. From controlled studio environments to large-scale club systems designed by Richard Long, our understanding of sound was formed through direct experience with its physical presence.',
+        studioB: 'We work from reference — a clear internal understanding of how sound should behave within a space. Tuning is a central part of our process, and it is always carried out by us, in-house, as part of the service. It is not about correction, but about refinement and alignment. The result is a system that is not only heard, but fully experienced.',
+        approachLabel: 'Approach',
+        approachHead: 'The loudspeaker is not the system. It is one component within a larger acoustic structure.',
+        approachBody: 'Most sound systems are designed as independent objects, and later placed into a space. In practice, sound is always shaped by the room. The space defines how it behaves — how it reflects, builds, and disperses. For this reason, each system begins with the room itself:',
+        roomFactors: ['Proportions', 'Materials', 'Reflective behavior', 'Listening positions', 'Movement within the space'],
+        approachClose: 'From there, we develop and build the system in-house to work within these conditions. This approach allows sound to sit naturally in the space, with presence, balance, and stability.',
+        expLabel: 'Experience',
+        expHead: 'The goal is not clarity alone, nor volume, nor technical precision. It is engagement.',
+        expBody: 'Not because the sound is louder, but because it aligns with the body. At that point, the listener stops analyzing and starts responding. Sound becomes physical. It becomes immersive. And it holds its presence within the space.',
+        expLines: ['Conversation fades', 'Attention shifts', 'Movement begins'],
+        percLabel: 'Sound & Individual Perception',
+        percHead: 'Sound is experienced differently in every space and by every listener.',
+        percBody: 'A system that performs well in one environment may behave differently in another. Each project is therefore approached individually. The system is developed in relation to the room and the listener. The process includes continuous adjustment and refinement, carried out by us, until the system feels natural within the space and aligned with how the client experiences sound.',
+        matLabel: 'Material & Form',
+        matHead: 'Form follows acoustic function.',
+        matBody: 'Materials are selected not only for their structural qualities, but for the way they influence sound behavior. Wood, in particular, is used for its ability to support natural resonance and controlled diffusion. Enclosures, waveguides, and horn structures are designed and built by us to control dispersion, timing, and energy distribution — each system developed as a visible element within the space.',
+        appLabel: 'Application',
+        appHead: 'Systems are developed for private residences and select high-end public environments.',
+        applications: ['Private homes', 'Dedicated listening rooms', 'Luxury hospitality spaces', 'Premium retail environments'],
+        appBody: 'Each project is designed to support both focused listening and a natural flow of movement within the space. The system becomes an integral part of how the space is experienced and used.',
+        maniLabel: 'Manifesto',
+        maniHead: 'Sound is not fixed. It is shaped.',
+        maniA: 'By space, material, and placement — and by the way it is experienced. A system cannot exist independently from the room. It is defined by it. Every surface affects it. Every proportion shifts it. Every decision leaves a trace.',
+        maniB: 'We design and build systems that belong to their space. Built in relation to architecture. Developed through listening. Refined through tuning — always performed by us, in-house. What matters is how sound moves, how it settles, and how it holds presence within the room.',
+        maniClose: 'When alignment is achieved, sound becomes physical. It is no longer observed. It is experienced.',
+        aboutLabel: 'About',
+        aboutHead: 'Sound, shaped through listening.',
+        aboutA: 'Our understanding of sound was formed early, in a period when sound systems were built from separate components — each with a defined role and frequency range. This way of working trained our ear to listen in layers.',
+        aboutB: 'Our team\u2019s first professional experience involved building crossover networks within one of Israel\u2019s leading audio environments. Over time, we built more than a thousand of them, developing a precise understanding of frequency distribution, system balance, and acoustic behavior. From there, our work expanded into the design and tuning of sound environments in Israel and across Europe.',
+        aboutQuote: '\u201cIn one residential project, during a classical music listening session, a client described being able to perceive the exact position of the violinist within the space.\u201d',
+        aboutQuoteSub: 'This level of spatial definition is not achieved through equipment alone. It is the result of alignment — between system, space, and perception.',
+        teamLabel: 'Team',
+        team: [
+          { name: 'Bar Dadush', role: 'Loudspeaker Design, Development & Planning, Assembly & Client Relations' },
+          { name: 'Ofer Uziel', role: 'Sound Design, Tuning & Development' },
+          { name: 'Maayan Dadush', role: 'Marketing & Brand' }
+        ],
+        commissionLabel: 'Commission',
+        commissionHead: 'Every system begins with the room.',
+        commissionBody: 'Each project is approached individually. A consultation begins with the space itself — its proportions, its materials, and the way it is used.',
+        footerNote: 'Designed, built and tuned in-house'
+      },
+      he: {
+        dir: 'rtl', langLabel: 'EN',
+        navValue: 'ערך ליבה', navProcess: 'התהליך', navApproach: 'הגישה', navSystems: 'מערכות', navAbout: 'אודות',
+        ctaPrimary: 'לתיאום פגישת ייעוץ', ctaSecondary: 'להתחלת מערכת',
+        tagline: 'סאונד, שמתעצב על ידי החלל',
+        positioning: 'מערכות סאונד קאסטום לחללים אדריכליים יוקרתיים — מתוכננות, נבנות ומכוונות במלואן אצלנו, בבית.',
+        visionLabel: 'חזון',
+        visionHead: 'להחזיר את הסאונד להיות חוויה פיזית ומרחבית, המתוכננת לנוע בצורה נכונה בתוך חלל אדריכלי.',
+        visionBody: 'באלייה אקוסטיק, אנחנו בונים כל מערכת כיצירת קאסטום המתוכננת במיוחד עבור החלל שלה, ומכוונים אותה בעצמנו, באופן אישי, כחלק בלתי נפרד מהשירות. כך כל מערכת מגיעה להרמוניה מלאה עם החלל שבו היא נמצאת.',
+        coreLabel: 'ערך ליבה',
+        coreHead: 'סאונד אינו סטנדרט קבוע. הוא אישי, תלוי הקשר, ומתעצב על ידי החלל.',
+        coreSub: 'מערכת מוגדרת על פי הקשר שלה עם החדר. אנחנו מתכננים, בונים ומכוונים מערכות ש:',
+        coreItems: [
+          { n: '01', text: 'נבנות קאסטום, מאפס, במיוחד עבור החלל הספציפי' },
+          { n: '02', text: 'מושפעות מחומרים ומפרופורציות' },
+          { n: '03', text: 'מכוונות על ידינו, בעצמנו, דרך האזנה — ולא דרך פריסטים' }
+        ],
+        coreClose: 'הרמקול אינו המוצר. הוא חלק מפרויקט אקוסטי רחב יותר.',
+        principleLabel: 'עקרון החוויה',
+        principleHead: 'מערכת מוצלחת היא כזו שמשנה התנהגות.',
+        principleBody: 'היא לא מוגדרת רק לפי איך שהיא נשמעת, אלא לפי מה שהיא יוצרת בתוך החלל. כשהיא מכוונת נכון:',
+        principleA: 'השיחה נעצרת', principleB: 'התנועה מתחילה',
+        serviceLabel: 'מבנה השירות',
+        serviceHead: 'כל פרויקט מתוכנן, נבנה ומכוון במלואו אצלנו, בבית.',
+        steps: [
+          { n: '01', title: 'ניתוח חלל', body: 'הבנת: מידות, חומרים, התנהגות אקוסטית.' },
+          { n: '02', title: 'ארכיטקטורת מערכת', body: 'הגדרת האופן שבו הסאונד נע בתוך החלל.' },
+          { n: '03', title: 'ייצור', body: 'כל מערכת נבנית בעבודת יד, קאסטום, בסדנה שלנו — ומתוכננת ונבנית במיוחד עבור החלל שלה.' },
+          { n: '04', title: 'אינטגרציה', body: 'מיקום המערכת כחלק מהשפה האדריכלית של החלל.' },
+          { n: '05', title: 'כיוון (Tuning)', body: 'כיול סופי באתר, המבוצע על ידינו באופן אישי כחלק בלתי נפרד מהשירות — ומבוסס כולו על האזנה, עד שהמערכת מגיעה להרמוניה מלאה עם החלל.' }
+        ],
+        scopeLabel: 'היקף הפרויקט',
+        scopeHead: 'הפרויקטים מתחילים סביב 70,000 ₪ ויכולים להגיע ל־400,000 ₪ ומעלה.',
+        scopeIntro: 'המחיר הסופי נקבע בהתאם ל:',
+        scopeItems: ['היקף המערכת', 'מורכבות אדריכלית', 'רמת ההתאמה האישית'],
+        studioHead: 'אלייה אקוסטיק ניגשת לסאונד כמשהו שמתעצב בתוך חלל.',
+        studioA: 'העבודה שלנו מבוססת על שנים של האזנה — למערכות שלא רק נשמעות, אלא מורגשות פיזית. מאולפני הקלטה מדויקים ועד מערכות מועדונים בקנה מידה גדול שתוכננו על ידי ריצ\u2019רד לונג, ההבנה שלנו לסאונד נבנתה מתוך מפגש ישיר עם הנוכחות הפיזית שלו.',
+        studioB: 'אנחנו עובדים מתוך רפרנס — הבנה פנימית ברורה של איך סאונד אמור להתנהג בתוך חלל. הכיוון הוא חלק מרכזי בתהליך שלנו, והוא מתבצע תמיד על ידינו, בעצמנו, כחלק מהשירות. לא מדובר בתיקון, אלא בדיוק והתאמה. התוצאה היא מערכת שלא רק נשמעת, אלא נחווית באופן מלא.',
+        approachLabel: 'הגישה',
+        approachHead: 'הרמקול אינו המערכת. הוא רכיב בתוך מבנה אקוסטי רחב יותר.',
+        approachBody: 'רוב מערכות הסאונד מתוכננות כאובייקטים עצמאיים, ורק לאחר מכן ממוקמות בתוך חלל. בפועל, הסאונד תמיד מושפע מהחדר. החלל מגדיר את ההתנהגות שלו — איך הוא מוחזר, נבנה ומתפזר. לכן, כל מערכת מתחילה מהחדר עצמו:',
+        roomFactors: ['פרופורציות', 'חומרים', 'התנהגות החזרות', 'נקודות האזנה', 'תנועה בתוך החלל'],
+        approachClose: 'משם, אנחנו מפתחים ובונים את המערכת אצלנו כך שתעבוד בתוך התנאים האלה. הגישה הזו מאפשרת לסאונד להתיישב באופן טבעי בחלל, עם נוכחות, איזון ויציבות.',
+        expLabel: 'חוויה',
+        expHead: 'המטרה אינה רק בהירות, לא עוצמה, ולא דיוק טכני בלבד. המטרה היא מעורבות.',
+        expBody: 'לא בגלל שהסאונד חזק יותר, אלא כי הוא מתיישר עם הגוף. בשלב הזה המאזין מפסיק לנתח ומתחיל להגיב. הסאונד הופך לפיזי. הוא הופך לעוטף. והוא מחזיק נוכחות בתוך החלל.',
+        expLines: ['השיחה נחלשת', 'הקשב משתנה', 'התנועה מתחילה'],
+        percLabel: 'סאונד ותפיסה אישית',
+        percHead: 'סאונד נחווה בצורה שונה בכל חלל ועל ידי כל מאזין.',
+        percBody: 'מערכת שעובדת היטב בסביבה אחת עשויה להתנהג אחרת בסביבה אחרת. לכן, כל פרויקט מטופל באופן ייחודי. המערכת מתפתחת בהתאם לחלל ולמאזין. התהליך כולל התאמה וכיוון מתמשכים, המבוצעים על ידינו, עד שהמערכת מרגישה טבעית בתוך החלל ומותאמת לאופן שבו הלקוח חווה את הסאונד.',
+        matLabel: 'חומר וצורה',
+        matHead: 'הצורה נגזרת מהתפקוד האקוסטי.',
+        matBody: 'החומרים נבחרים לא רק לפי התכונות המבניות שלהם, אלא גם לפי ההשפעה שלהם על התנהגות הסאונד. לעץ, במיוחד, יש תפקיד מרכזי — בזכות היכולת שלו לייצר תהודה טבעית ופיזור מבוקר. תיבות, waveguides ושופרים מתוכננים ונבנים על ידינו כך שישלטו בפיזור, בתזמון ובהתפלגות האנרגיה — וכל מערכת מתפתחת כאלמנט נראה בתוך החלל.',
+        appLabel: 'יישום',
+        appHead: 'המערכות מפותחות עבור בתים פרטיים ועבור חללים ציבוריים יוקרתיים נבחרים.',
+        applications: ['בתים פרטיים', 'חדרי האזנה ייעודיים', 'חללי אירוח יוקרתיים', 'חללי מסחר פרימיום'],
+        appBody: 'כל פרויקט מתוכנן כך שיתמוך גם בהקשבה ממוקדת וגם בזרימה טבעית של תנועה בתוך החלל. המערכת הופכת לחלק אינטגרלי מהאופן שבו החלל נחווה ומשמש.',
+        maniLabel: 'מניפסט',
+        maniHead: 'סאונד אינו קבוע. הוא מתעצב.',
+        maniA: 'על ידי החלל, החומר והמיקום — ועל ידי האופן שבו הוא נחווה. מערכת אינה יכולה להתקיים בנפרד מהחדר. היא מוגדרת על ידו. כל משטח משפיע. כל פרופורציה משנה. כל החלטה משאירה חותם.',
+        maniB: 'אנחנו מתכננים ובונים מערכות ששייכות לחלל שלהן. נבנות ביחס לאדריכלות. מתפתחות דרך האזנה. מתחדדות דרך כיוון — שמתבצע תמיד על ידינו, בבית. מה שחשוב הוא איך הסאונד נע, איך הוא מתיישב, ואיך הוא מחזיק נוכחות בתוך החלל.',
+        maniClose: 'כאשר נוצרת התאמה מלאה, הסאונד הופך לפיזי. הוא כבר לא נצפה — הוא נחווה.',
+        aboutLabel: 'אודות',
+        aboutHead: 'סאונד שמתעצב דרך האזנה.',
+        aboutA: 'ההבנה שלנו בסאונד נבנתה כבר בשלב מוקדם, בתקופה שבה מערכות סאונד נבנו ממרכיבים נפרדים — שלכל אחד מהם תפקיד מוגדר וטווח תדרים ברור. צורת העבודה הזו אימנה את האוזן שלנו לשמוע בשכבות.',
+        aboutB: 'הניסיון המקצועי הראשון שלנו כלל בניית קרוסאוברים לרמקולים, במסגרת אחת מסביבות האודיו המובילות בישראל. לאורך הזמן בנינו למעלה מאלף קרוסאוברים, ופיתחנו הבנה מדויקת של חלוקת תדרים, איזון והתנהגות אקוסטית. משם, העבודה שלנו התרחבה לתכנון וכיוון של חללי סאונד בישראל ובאירופה.',
+        aboutQuote: '\u201eבאחד הפרויקטים הביתיים, במהלך האזנה למוזיקה קלאסית, לקוח תיאר שהוא מסוגל לחוש את המיקום המדויק של הכנר בתוך החלל.\u201d',
+        aboutQuoteSub: 'רמת ההפרדה הזו אינה נוצרת מהציוד בלבד. היא תוצאה של התאמה — בין המערכת, החלל והאופן שבו היא נתפסת.',
+        teamLabel: 'צוות',
+        team: [
+          { name: 'בר דדוש', role: 'תכנון ופיתוח רמקולים, הרכבה וקשרי לקוחות' },
+          { name: 'עופר עוזיאל', role: 'עיצוב סאונד, כיוון ופיתוח' },
+          { name: 'מעיין דדוש', role: 'שיווק ומיתוג' }
+        ],
+        commissionLabel: 'התחלת פרויקט',
+        commissionHead: 'כל מערכת מתחילה מהחדר.',
+        commissionBody: 'כל פרויקט מטופל באופן ייחודי. פגישת ייעוץ מתחילה מהחלל עצמו — הפרופורציות שלו, החומרים שלו, והאופן שבו הוא משמש.',
+        footerNote: 'מתוכנן, נבנה ומכוון אצלנו, בבית'
+      }
+    };
+  }
+
+  toggle = () => {
+    const next = this.state.lang === 'en' ? 'he' : 'en';
+    try { localStorage.setItem('eliyah-lang', next); } catch (e) {}
+    this.setState({ lang: next });
+  };
+
+  renderVals() {
+    const lang = this.state.lang === 'he' ? 'he' : 'en';
+    const t = this.copy()[lang];
+    return Object.assign({}, t, {
+      displayFont: lang === 'he' ? "'Heebo', sans-serif" : "'Fraunces', serif",
+      bodyFont: lang === 'he' ? "'Heebo', sans-serif" : "'Manrope', sans-serif",
+      lineHeight: lang === 'he' ? '2.05' : '1.95',
+      bandAngle: lang === 'he' ? '260deg' : '100deg',
+      toggleLang: this.toggle,
+      showTeam: this.props.showTeam ?? true
+    });
+  }
+}
+
+</script>
+</body>
+</html>
