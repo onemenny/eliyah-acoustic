@@ -1,0 +1,8 @@
+/*
+ * `clip`, never `hidden` (docs §5.3): `hidden` creates a scrollport that
+ * silently breaks `position: sticky` in the pinned Experience band.
+ */
+.page {
+  overflow-x: clip;
+  min-height: 100vh;
+}

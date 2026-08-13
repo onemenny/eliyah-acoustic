@@ -1,0 +1,48 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* §5.4 item 1 anchors smooth-scroll to section ids, but §4/§5.5 require
+     honouring prefers-reduced-motion — the prototype does not gate this. */
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--void-oak);
+  color: var(--travertine);
+  font-family: var(--body);
+  font-weight: var(--weight-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--aubergine);
+  color: var(--travertine);
+}
+
+a {
+  color: var(--travertine);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--aged-brass);
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+}

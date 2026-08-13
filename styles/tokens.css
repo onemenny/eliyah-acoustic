@@ -1,0 +1,98 @@
+/*
+ * Eliyah Acoustic design tokens — docs §5.1 (colour) and §5.2 (typography & spacing).
+ * Canonical visual reference: design_handoff_eliyah_homepage/.
+ *
+ * Locale-varying tokens (font families, line-height, directional gradient
+ * angles, eyebrow label metrics) are defined once here, keyed off the
+ * [data-locale] attribute on the page wrapper. Per §3.2 the RTL flip lives in
+ * one place — components consume the token and never branch on locale
+ * themselves.
+ */
+
+:root {
+  /* ── §5.1 Colour ───────────────────────────────────────────────── */
+  --void-oak: #181310; /* primary background — warm near-black, never pure black */
+  --card-raised: #201914; /* image-frame background behind photos while loading */
+  --travertine: #e9e2d3; /* primary text on dark; background of the light About section */
+  --travertine-dim: #d8d0be; /* image-frame background inside the light section */
+  --walnut: #6b4e36; /* labels/rules inside the light section */
+  --aubergine: #3a2142; /* hover wash + ::selection only — never a flat background */
+  --aged-brass: #b8935f; /* eyebrow labels, step numbers, CTA underline, accent lines */
+  --smoke: #a39880; /* wordmark sub-lockup, muted meta */
+
+  /* Text alphas on dark */
+  --text-heading: var(--travertine);
+  --text-body: rgba(233, 226, 211, 0.72);
+  --text-step-body: rgba(233, 226, 211, 0.68);
+  --text-cell: rgba(233, 226, 211, 0.82);
+  --text-cell-strong: rgba(233, 226, 211, 0.86);
+  --text-muted: rgba(233, 226, 211, 0.6);
+  --text-meta: rgba(233, 226, 211, 0.62);
+
+  /* Text alphas on light (the About section) */
+  --text-body-light: rgba(24, 19, 16, 0.78);
+  --text-caption-light: rgba(24, 19, 16, 0.6);
+  --text-caption-light-strong: rgba(24, 19, 16, 0.62);
+
+  /* Hairlines */
+  --hairline: rgba(233, 226, 211, 0.1);
+  --hairline-strong: rgba(233, 226, 211, 0.12);
+  --hairline-strongest: rgba(233, 226, 211, 0.14);
+  --hairline-light: rgba(24, 19, 16, 0.16);
+
+  /* Chrome */
+  --border-button: rgba(233, 226, 211, 0.22);
+  --underline-brass: rgba(184, 147, 95, 0.45);
+
+  /* ── §5.2 Typography ───────────────────────────────────────────── */
+  --body-size: 15px;
+  --weight-body: 300;
+  --weight-label: 500;
+  --weight-label-strong: 600;
+  --weight-display: 200;
+  --weight-display-strong: 300;
+
+  /* ── §5.2 Spacing & layout ─────────────────────────────────────── */
+  --page-padding-x: 40px;
+  --content-max-width: 1180px;
+  --grid-max-width: 1240px;
+  --section-y: clamp(90px, 13vw, 180px);
+  --section-y-tight: clamp(84px, 11vw, 150px);
+
+  /* §5.2: no radius anywhere except the language button. */
+  --radius-lang-button: 2px;
+}
+
+/* ── Locale-varying tokens ───────────────────────────────────────── */
+
+[data-locale='en'] {
+  /* Fraunces/Manrope have no Hebrew coverage — the family swap is required,
+     not cosmetic (§5.2). */
+  --display: var(--font-fraunces), serif;
+  --body: var(--font-manrope), sans-serif;
+  --lh: 1.95;
+
+  /* Directional gradients flip per language (§5.3). */
+  --band-angle: 100deg; /* pinned Experience band scrim */
+  --row-hover-angle: 90deg; /* Structure-of-Service row hover wash */
+
+  /* Section eyebrow label (§5.2). */
+  --eyebrow-size: 10px;
+  --eyebrow-weight: 600;
+  --eyebrow-tracking: 0.28em;
+  --eyebrow-transform: uppercase;
+}
+
+[data-locale='he'] {
+  --display: var(--font-heebo), sans-serif;
+  --body: var(--font-heebo), sans-serif;
+  --lh: 2.05;
+
+  --band-angle: 260deg;
+  --row-hover-angle: 270deg;
+
+  --eyebrow-size: 11px;
+  --eyebrow-weight: 500;
+  --eyebrow-tracking: 0.24em;
+  --eyebrow-transform: none;
+}
