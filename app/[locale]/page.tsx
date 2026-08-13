@@ -1,6 +1,7 @@
 import { About } from '@/components/homepage/About';
 import { Application } from '@/components/homepage/Application';
 import { Approach } from '@/components/homepage/Approach';
+import { Consultation } from '@/components/homepage/Consultation';
 import { CoreValue } from '@/components/homepage/CoreValue';
 import { EliyahAcoustic } from '@/components/homepage/EliyahAcoustic';
 import { Experience } from '@/components/homepage/Experience';
@@ -12,16 +13,15 @@ import { Perception } from '@/components/homepage/Perception';
 import { ProjectScope } from '@/components/homepage/ProjectScope';
 import { StructureOfService } from '@/components/homepage/StructureOfService';
 import { Vision } from '@/components/homepage/Vision';
+import { Footer } from '@/components/layout/Footer';
 import { Nav } from '@/components/layout/Nav';
 import { defaultLocale, getDictionary, isLocale, type Locale } from '@/i18n';
 
-// Homepage — docs §5.4. Nav + Hero (sections 1-2), Vision + Core Value +
-// Experience Principle (sections 3-5), Structure of Service + Project Scope
-// (sections 6-7), Eliyah Acoustic + Approach (sections 8-9), Experience +
-// Sound & Individual Perception (sections 10-11), Material & Form +
-// Application (sections 12-13), and Manifesto + About (sections 14-15) land
-// here; Consultation + Footer (sections 16-17) are a separate Phase 1 issue
-// built on top of this same foundation.
+// Homepage — docs §5.4, all 17 sections: Nav + Hero (1-2), Vision + Core
+// Value + Experience Principle (3-5), Structure of Service + Project Scope
+// (6-7), Eliyah Acoustic + Approach (8-9), Experience + Sound & Individual
+// Perception (10-11), Material & Form + Application (12-13), Manifesto +
+// About (14-15), and Consultation + Footer (16-17).
 export default async function LocaleHome({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : defaultLocale;
@@ -45,8 +45,9 @@ export default async function LocaleHome({ params }: { params: Promise<{ locale:
         <Application t={t} />
         <Manifesto t={t} />
         <About t={t} />
-        {/* Consultation, Footer: docs §5.4 items 16-17, later issue. */}
+        <Consultation t={t} />
       </main>
+      <Footer t={t} />
     </>
   );
 }

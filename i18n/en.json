@@ -106,5 +106,9 @@
     { "name": "Bar Dadush", "role": "Loudspeaker Design, Development & Planning, Assembly & Client Relations" },
     { "name": "Ofer Uziel", "role": "Sound Design, Tuning & Development" },
     { "name": "Maayan Dadush", "role": "Marketing & Brand" }
-  ]
+  ],
+  "commissionLabel": "Commission",
+  "commissionHead": "Every system begins with the room.",
+  "commissionBody": "Each project is approached individually. A consultation begins with the space itself — its proportions, its materials, and the way it is used.",
+  "footerNote": "Designed, built and tuned in-house"
 }

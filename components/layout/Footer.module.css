@@ -1,0 +1,57 @@
+/* Docs §5.4 item 17. */
+
+.footer {
+  padding: 44px var(--page-padding-x) 52px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  /* Chrome layout (wordmark left, contact right) stays LTR in both languages
+     (docs §5.3) — same convention as Nav.module.css's `.links` and
+     Hero.module.css's `.foot`. Only the translated text run (`.credit`
+     below) re-flips to the locale direction. */
+  direction: ltr;
+}
+
+.wordmarkMain {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+}
+
+.wordmarkSub {
+  margin-top: 6px;
+  font-family: var(--body);
+  font-size: 9px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 44px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  /* Same chrome-stays-LTR rule as .footer above — pins the untranslated
+     email/city block left and the translated credit block right regardless
+     of locale. */
+  direction: ltr;
+}
+
+.credit {
+  /* Re-flips just this text run (the translated `footerNote`) back to the
+     locale direction, mirroring Hero.module.css's `.positioning` sub-rule —
+     the email/city block next to it is a literal, untranslated string in
+     both locales so it needs no equivalent override. */
+  direction: var(--text-dir);
+  text-align: start;
+}

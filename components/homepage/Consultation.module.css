@@ -1,0 +1,110 @@
+/* Docs §5.4 item 16. Dark section (--void-oak), like every section besides
+   About — no light-section token overrides needed here. */
+
+.consultation {
+  padding: var(--section-y) var(--page-padding-x) var(--section-y-tight);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as every other section. */
+.label,
+.head,
+.body,
+.ctaRow {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.body[data-revealed='true'],
+.ctaRow[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 36px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(30px, 5.4vw, 78px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.08);
+  margin: 0;
+  max-width: 15em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  margin: 32px 0 0;
+  max-width: 34em;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 34px;
+  margin-top: 50px;
+  direction: var(--text-dir);
+}
+
+.primary {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: clamp(20px, 2.4vw, 30px);
+  color: var(--text-heading);
+  border-bottom: 1px solid var(--aged-brass);
+  padding-bottom: 10px;
+  transition: color 0.4s ease;
+}
+
+.primary:hover {
+  color: var(--aged-brass);
+}
+
+.secondary {
+  font-size: 11px;
+  font-weight: var(--weight-label-strong);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-body);
+  transition: color 0.4s ease;
+}
+
+.secondary:hover {
+  color: var(--aged-brass);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .body,
+  .ctaRow {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
