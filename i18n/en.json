@@ -110,5 +110,11 @@
   "commissionLabel": "Commission",
   "commissionHead": "Every system begins with the room.",
   "commissionBody": "Each project is approached individually. A consultation begins with the space itself — its proportions, its materials, and the way it is used.",
-  "footerNote": "Designed, built and tuned in-house"
+  "footerNote": "Designed, built and tuned in-house",
+  "products": {
+    "label": "Systems Catalog",
+    "head": "Five fixed models, each a starting point for a fully custom system.",
+    "intro": "Each model shown here is a reference point — every system we build is ultimately shaped, in dimensions and materials, to its space.",
+    "priceFrom": "From"
+  }
 }

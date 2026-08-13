@@ -1,0 +1,50 @@
+/* Docs §3.4 `catalog/`, §2.1. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-raised);
+  border: 1px solid var(--hairline);
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--card-raised);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.body {
+  padding: 22px 22px 26px;
+  direction: var(--text-dir);
+}
+
+.name {
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: calc(clamp(18px, 2vw, 24px) * var(--head-scale));
+  line-height: 1.25;
+  margin: 0 0 10px;
+  color: var(--text-heading);
+}
+
+.description {
+  font-size: 13px;
+  line-height: var(--lh);
+  color: var(--text-body);
+  margin: 0 0 18px;
+}
+
+/* Indicative price, not a buy button (§2.5) — styled as the same eyebrow
+   treatment as section labels, not as CTA/button chrome. */
+.price {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+}
