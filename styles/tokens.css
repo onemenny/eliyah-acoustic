@@ -81,6 +81,12 @@
   --eyebrow-weight: 600;
   --eyebrow-tracking: 0.28em;
   --eyebrow-transform: uppercase;
+
+  /* Text-run direction (§5.3): for chrome containers that force
+     `direction: ltr` to keep physical layout order fixed (e.g. Nav,
+     Hero's bottom row), individual text-bearing descendants re-apply this
+     to flip back to the locale's real reading direction. */
+  --text-dir: ltr;
 }
 
 [data-locale='he'] {
@@ -95,4 +101,6 @@
   --eyebrow-weight: 500;
   --eyebrow-tracking: 0.24em;
   --eyebrow-transform: none;
+
+  --text-dir: rtl;
 }

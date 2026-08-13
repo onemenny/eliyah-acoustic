@@ -1,0 +1,137 @@
+/* Docs §5.4 item 2. */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--void-oak);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.scrimLinear {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.52) 0%,
+    rgba(0, 0, 0, 0.42) 34%,
+    rgba(0, 0, 0, 0.46) 62%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+}
+
+.scrimRadial {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side at 50% 48%,
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.28) 62%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.text {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 32px;
+  will-change: transform, opacity;
+}
+
+/* Brand logotype — always Latin type in both locales, never translated
+   (docs §5.6), so it uses the font vars directly rather than --display. */
+.wordmarkMain {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 200;
+  font-size: clamp(46px, 9vw, 132px);
+  line-height: 0.95;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--travertine);
+  text-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.wordmarkSub {
+  margin-top: 14px;
+  font-family: var(--font-manrope), sans-serif;
+  font-size: clamp(11px, 1.5vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.58em;
+  text-transform: uppercase;
+  color: var(--travertine);
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+}
+
+.rule {
+  margin-top: 34px;
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(var(--aged-brass), rgba(184, 147, 95, 0));
+}
+
+.tagline {
+  margin-top: 22px;
+  font-size: 12px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.28em;
+  color: var(--aged-brass);
+  text-transform: uppercase;
+}
+
+.foot {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  /* Chrome layout (positioning line left, scroll cue right) stays LTR in
+     both languages (docs §5.3) — the positioning paragraph's own text run
+     is re-flipped back to the locale direction below, since forcing the row
+     to ltr also forces its descendants' inherited `direction`. */
+  direction: ltr;
+}
+
+.positioning {
+  margin: 0;
+  direction: var(--text-dir);
+  text-align: start;
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(233, 226, 211, 0.86);
+  max-width: 360px;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+}
+
+.scrollLabel {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 10px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(233, 226, 211, 0.62);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text,
+  .foot {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
