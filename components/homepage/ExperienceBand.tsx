@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import type { Dictionary } from '@/i18n';
+import { assetPath } from '@/lib/basePath';
 import { subscribeScrollFrame } from '@/lib/scrollFx';
 import styles from './ExperienceBand.module.css';
 
@@ -68,7 +69,7 @@ export function ExperienceBand({ t }: Props) {
       <div className={styles.sticky}>
         <div ref={imageRef} className={styles.imageWrap}>
           <Image
-            src="/images/burl-pair-wide.jpg"
+            src={assetPath('/images/burl-pair-wide.jpg')}
             alt=""
             fill
             sizes="100vw"

@@ -1,6 +1,6 @@
 import { defaultLocale } from '@/i18n';
+import { basePath } from '@/lib/basePath';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const target = `${basePath}/${defaultLocale}/`;
 
 // Canonical routes are /en/ and /he/. This is the bare `/` entry point: under

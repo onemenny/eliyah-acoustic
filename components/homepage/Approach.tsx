@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import type { Dictionary } from '@/i18n';
+import { assetPath } from '@/lib/basePath';
 import { observeRevealGroup } from '@/lib/reveal';
 import { subscribeScrollFrame } from '@/lib/scrollFx';
 import styles from './Approach.module.css';
@@ -74,7 +75,7 @@ export function Approach({ t }: Props) {
       <div className={styles.photoPanel}>
         <div ref={imageWrapRef} className={styles.imageWrap}>
           <Image
-            src="/images/cherry-single.jpg"
+            src={assetPath('/images/cherry-single.jpg')}
             alt=""
             fill
             sizes="(max-width: 900px) 100vw, 50vw"

@@ -1,3 +1,4 @@
+import { assetPath } from '@/lib/basePath';
 import type { Product } from '@/types/product';
 
 // Source of truth for the catalog through Phase 2-3 (docs §3.4).
@@ -24,7 +25,7 @@ export const products: Product[] = [
     description: 'A compact floor system in blackened oak, built for focused listening rooms.',
     basePriceCents: 4_200_000,
     baseCurrency: 'ILS',
-    images: ['/images/sys-black-octagon.jpg'],
+    images: [assetPath('/images/sys-black-octagon.jpg')],
     variantCategories: [],
   },
   {
@@ -34,7 +35,7 @@ export const products: Product[] = [
     description: 'A burl-veneered pair shaped for open living spaces and natural dispersion.',
     basePriceCents: 5_600_000,
     baseCurrency: 'ILS',
-    images: ['/images/sys-burl-oval.jpg'],
+    images: [assetPath('/images/sys-burl-oval.jpg')],
     variantCategories: [],
   },
   {
@@ -44,7 +45,7 @@ export const products: Product[] = [
     description: 'A tall cherry-wood column system, suited to double-height architectural rooms.',
     basePriceCents: 7_800_000,
     baseCurrency: 'ILS',
-    images: ['/images/sys-cherry-tall.jpg'],
+    images: [assetPath('/images/sys-cherry-tall.jpg')],
     variantCategories: [],
   },
   {
@@ -54,7 +55,7 @@ export const products: Product[] = [
     description: 'A steel-and-oak stacked-driver system for high-output, large-room installations.',
     basePriceCents: 9_500_000,
     baseCurrency: 'ILS',
-    images: ['/images/sys-oak-steel.jpg'],
+    images: [assetPath('/images/sys-oak-steel.jpg')],
     variantCategories: [],
   },
   {
@@ -64,7 +65,7 @@ export const products: Product[] = [
     description: 'An ivory-lacquered column system, finished for light, minimal interiors.',
     basePriceCents: 6_400_000,
     baseCurrency: 'ILS',
-    images: ['/images/sys-ivory-column.jpg'],
+    images: [assetPath('/images/sys-ivory-column.jpg')],
     variantCategories: [],
   },
 ];

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import type { Dictionary } from '@/i18n';
+import { assetPath } from '@/lib/basePath';
 import { observeReveal } from '@/lib/reveal';
 import { subscribeScrollFrame } from '@/lib/scrollFx';
 import styles from './About.module.css';
@@ -91,7 +92,7 @@ export function About({ t }: Props) {
           <div ref={portraitRef} className={styles.portrait}>
             <div ref={imageWrapRef} className={styles.imageWrap}>
               <Image
-                src="/images/sys-cherry-tall.jpg"
+                src={assetPath('/images/sys-cherry-tall.jpg')}
                 alt=""
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"

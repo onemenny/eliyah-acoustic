@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import type { Dictionary } from '@/i18n';
+import { assetPath } from '@/lib/basePath';
 import { observeReveal, observeRevealGroup } from '@/lib/reveal';
 import { subscribeScrollFrame } from '@/lib/scrollFx';
 import styles from './MaterialForm.module.css';
@@ -16,12 +17,12 @@ const PARALLAX_SPEED = 0.05; // docs §5.5: grid tiles
 const OFFSCREEN_SKIP_PX = 240; // docs §5.5: skip elements >240px outside viewport
 
 const TILES = [
-  { src: '/images/sys-cherry-wave.jpg' },
-  { src: '/images/sys-burl-oval.jpg' },
-  { src: '/images/sys-oak-steel.jpg' },
-  { src: '/images/sys-steel-stack.jpg' },
-  { src: '/images/sys-ivory-column.jpg' },
-  { src: '/images/sys-black-octagon.jpg' },
+  { src: assetPath('/images/sys-cherry-wave.jpg') },
+  { src: assetPath('/images/sys-burl-oval.jpg') },
+  { src: assetPath('/images/sys-oak-steel.jpg') },
+  { src: assetPath('/images/sys-steel-stack.jpg') },
+  { src: assetPath('/images/sys-ivory-column.jpg') },
+  { src: assetPath('/images/sys-black-octagon.jpg') },
 ];
 
 /**

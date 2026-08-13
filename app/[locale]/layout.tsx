@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Fraunces, Manrope, Heebo } from 'next/font/google';
 
 import { defaultLocale, dirFor, getDictionary, isLocale, locales, type Locale } from '@/i18n';
+import { basePath } from '@/lib/basePath';
 import '@/styles/globals.css';
 import styles from './layout.module.css';
 
@@ -33,7 +34,6 @@ const heebo = Heebo({
   variable: '--font-heebo',
 });
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://onemenny.github.io';
 
 // Static per-locale routes, generated at build time. Deliberately not

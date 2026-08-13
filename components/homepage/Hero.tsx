@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import type { Dictionary } from '@/i18n';
+import { assetPath } from '@/lib/basePath';
 import { subscribeScrollFrame } from '@/lib/scrollFx';
 import styles from './Hero.module.css';
 
@@ -45,7 +46,7 @@ export function Hero({ t }: Props) {
   return (
     <section id="top" className={styles.hero}>
       <Image
-        src="/images/room-wall-system.jpg"
+        src={assetPath('/images/room-wall-system.jpg')}
         alt=""
         fill
         priority

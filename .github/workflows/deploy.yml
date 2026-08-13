@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+# Phase 1 ships as a static export on GitHub Pages (docs §3.1). This publishes
+# `out/` on every push to main via the official Pages actions, not a
+# third-party gh-pages-branch pusher. NEXT_PUBLIC_BASE_PATH is set only in the
+# build step here — local dev and any other environment leave it unset, so
+# next.config.js's basePath/assetPrefix stay empty everywhere else.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build static export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /eliyah-acoustic
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
