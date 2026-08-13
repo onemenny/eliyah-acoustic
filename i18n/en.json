@@ -67,5 +67,13 @@
   "scopeLabel": "Project Scope",
   "scopeHead": "Projects begin around ₪70,000 and can reach ₪400,000 and above.",
   "scopeIntro": "Final pricing depends on:",
-  "scopeItems": ["System scale", "Architectural complexity", "Level of customization"]
+  "scopeItems": ["System scale", "Architectural complexity", "Level of customization"],
+  "studioHead": "Eliyah Acoustic approaches sound as something that is shaped within space.",
+  "studioA": "Our work is built on years of listening — to systems that were not only heard, but physically experienced. From controlled studio environments to large-scale club systems designed by Richard Long, our understanding of sound was formed through direct experience with its physical presence.",
+  "studioB": "We work from reference — a clear internal understanding of how sound should behave within a space. Tuning is a central part of our process, and it is always carried out by us, in-house, as part of the service. It is not about correction, but about refinement and alignment. The result is a system that is not only heard, but fully experienced.",
+  "approachLabel": "Approach",
+  "approachHead": "The loudspeaker is not the system. It is one component within a larger acoustic structure.",
+  "approachBody": "Most sound systems are designed as independent objects, and later placed into a space. In practice, sound is always shaped by the room. The space defines how it behaves — how it reflects, builds, and disperses. For this reason, each system begins with the room itself:",
+  "roomFactors": ["Proportions", "Materials", "Reflective behavior", "Listening positions", "Movement within the space"],
+  "approachClose": "From there, we develop and build the system in-house to work within these conditions. This approach allows sound to sit naturally in the space, with presence, balance, and stability."
 }

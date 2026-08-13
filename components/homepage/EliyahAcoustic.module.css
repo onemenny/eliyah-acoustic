@@ -1,0 +1,84 @@
+/* Docs §5.4 item 8. */
+
+.studio {
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as CoreValue/Vision. */
+.label,
+.head,
+.bodyA,
+.bodyB {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.bodyA[data-revealed='true'],
+.bodyB[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 44px;
+  /* Literal brand name (not translated dictionary text) — always Latin
+     script regardless of locale, so the run stays LTR (docs §5.3). */
+  direction: ltr;
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(28px, 4.6vw, 62px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.14);
+  margin: 0;
+  max-width: 15em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(32px, 5vw, 80px);
+  margin-top: clamp(44px, 6vw, 84px);
+  max-width: 1000px;
+}
+
+.bodyA,
+.bodyB {
+  margin: 0;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .bodyA,
+  .bodyB {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
