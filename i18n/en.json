@@ -34,5 +34,38 @@
   "principleHead": "A system is successful when it changes behavior.",
   "principleBody": "It is not defined by how it sounds, but by what it creates in the space. When it is tuned correctly:",
   "principleA": "Conversation stops",
-  "principleB": "Movement begins"
+  "principleB": "Movement begins",
+  "serviceLabel": "Structure of Service",
+  "serviceHead": "Every project is designed, built, and tuned entirely in-house.",
+  "steps": [
+    {
+      "n": "01",
+      "title": "Spatial Analysis",
+      "body": "Understanding the room: dimensions, materials, acoustic behavior."
+    },
+    {
+      "n": "02",
+      "title": "System Architecture",
+      "body": "Defining how sound moves within the space."
+    },
+    {
+      "n": "03",
+      "title": "Fabrication",
+      "body": "Every system is custom-built by hand, in our own workshop, designed and constructed specifically for its space."
+    },
+    {
+      "n": "04",
+      "title": "Integration",
+      "body": "Positioned as part of the architectural language of the space."
+    },
+    {
+      "n": "05",
+      "title": "Tuning",
+      "body": "Final on-site calibration, performed personally by our team as an integral part of the service — refined entirely through listening, until the system is in complete harmony with its space."
+    }
+  ],
+  "scopeLabel": "Project Scope",
+  "scopeHead": "Projects begin around ₪70,000 and can reach ₪400,000 and above.",
+  "scopeIntro": "Final pricing depends on:",
+  "scopeItems": ["System scale", "Architectural complexity", "Level of customization"]
 }

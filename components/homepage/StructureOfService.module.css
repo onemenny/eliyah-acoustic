@@ -1,0 +1,121 @@
+/* Docs §5.4 item 6. */
+
+.process {
+  /* Handoff literal is clamp(90px,13vw,170px) — close to but not identical
+     to --section-y's 180px max; reusing the shared token per spec (the 10px
+     gap only shows up at extreme viewport widths) rather than adding a
+     third one-off section-rhythm value. */
+  padding: var(--section-y) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.intro {
+  max-width: 800px;
+  margin-bottom: clamp(44px, 6vw, 80px);
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as Vision/CoreValue. */
+.label,
+.head {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 26px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(28px, 4.4vw, 58px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.16);
+  margin: 0;
+  color: var(--text-heading);
+  direction: var(--text-dir);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content row, not fixed chrome (docs §5.3): no direction override here —
+   reading order (number leading, body trailing) follows the page's own
+   `dir` naturally, right-to-left in Hebrew. */
+.row {
+  display: grid;
+  grid-template-columns: 80px minmax(150px, 1.1fr) 2fr;
+  gap: clamp(16px, 4vw, 56px);
+  align-items: start;
+  padding: 34px 20px 36px;
+  border-top: 1px solid var(--hairline-strongest);
+  transition: background 0.5s ease;
+}
+
+/* Directional hover wash (docs §5.3): flips 90deg (EN) / 270deg (HE) via the
+   locale-varying --row-hover-angle token in styles/tokens.css (already
+   defined, unused until this section) — no locale branching here. */
+.row:hover {
+  background: linear-gradient(var(--row-hover-angle), rgba(58, 33, 66, 0.6), rgba(24, 19, 16, 0));
+}
+
+.number {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--aged-brass);
+  padding-top: 8px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: var(--weight-display-strong);
+  font-size: calc(clamp(20px, 2.3vw, 29px) * var(--head-scale));
+  line-height: 1.3;
+  color: var(--text-heading);
+}
+
+.body {
+  margin: 0;
+  max-width: 46em;
+  font-size: 14px;
+  line-height: var(--lh);
+  color: var(--text-step-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .row {
+    transition: none;
+  }
+}

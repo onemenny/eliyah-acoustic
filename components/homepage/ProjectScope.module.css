@@ -1,0 +1,91 @@
+/* Docs §5.4 item 7. */
+
+.scope {
+  /* Handoff literal clamp(84px,11vw,150px) matches --section-y-tight exactly. */
+  padding: var(--section-y-tight) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.grid {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(36px, 6vw, 90px);
+  align-items: start;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as Vision/CoreValue. The
+   right-hand column (intro + rows) is one reveal target, not staggered
+   per-row, matching the handoff's single data-reveal="2" on that block. */
+.label,
+.head,
+.right {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.right[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 30px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(26px, 3.6vw, 46px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.2);
+  margin: 0;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.intro {
+  font-size: 14px;
+  line-height: var(--lh);
+  color: var(--text-body);
+  margin-bottom: 22px;
+  direction: var(--text-dir);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  background: var(--void-oak);
+  border-top: 1px solid var(--hairline-strongest);
+  padding: 20px 4px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-cell-strong);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
