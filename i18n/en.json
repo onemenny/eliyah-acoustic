@@ -75,5 +75,12 @@
   "approachHead": "The loudspeaker is not the system. It is one component within a larger acoustic structure.",
   "approachBody": "Most sound systems are designed as independent objects, and later placed into a space. In practice, sound is always shaped by the room. The space defines how it behaves — how it reflects, builds, and disperses. For this reason, each system begins with the room itself:",
   "roomFactors": ["Proportions", "Materials", "Reflective behavior", "Listening positions", "Movement within the space"],
-  "approachClose": "From there, we develop and build the system in-house to work within these conditions. This approach allows sound to sit naturally in the space, with presence, balance, and stability."
+  "approachClose": "From there, we develop and build the system in-house to work within these conditions. This approach allows sound to sit naturally in the space, with presence, balance, and stability.",
+  "expLabel": "Experience",
+  "expHead": "The goal is not clarity alone, nor volume, nor technical precision. It is engagement.",
+  "expBody": "Not because the sound is louder, but because it aligns with the body. At that point, the listener stops analyzing and starts responding. Sound becomes physical. It becomes immersive. And it holds its presence within the space.",
+  "expLines": ["Conversation fades", "Attention shifts", "Movement begins"],
+  "percLabel": "Sound & Individual Perception",
+  "percHead": "Sound is experienced differently in every space and by every listener.",
+  "percBody": "A system that performs well in one environment may behave differently in another. Each project is therefore approached individually. The system is developed in relation to the room and the listener. The process includes continuous adjustment and refinement, carried out by us, until the system feels natural within the space and aligned with how the client experiences sound."
 }

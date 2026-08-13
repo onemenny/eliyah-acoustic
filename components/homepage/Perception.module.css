@@ -1,0 +1,74 @@
+/* Docs §5.4 item 11. */
+
+.perception {
+  padding: var(--section-y-tight) var(--page-padding-x);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(36px, 6vw, 90px);
+  align-items: start;
+}
+
+/* Reveal-on-enter (docs §5.5) — same mechanism as Vision/CoreValue. */
+.label,
+.head,
+.body {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 1.05s ease,
+    transform 1.05s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.label[data-revealed='true'],
+.head[data-revealed='true'],
+.body[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.label {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: var(--eyebrow-transform);
+  color: var(--aged-brass);
+  margin-bottom: 28px;
+  direction: var(--text-dir);
+}
+
+.head {
+  font-family: var(--display);
+  font-weight: var(--weight-display);
+  font-size: calc(clamp(26px, 3.6vw, 46px) * var(--head-scale));
+  line-height: var(--head-lh-loose, 1.2);
+  margin: 0;
+  max-width: 16em;
+  color: var(--text-heading);
+  text-wrap: pretty;
+  direction: var(--text-dir);
+}
+
+.body {
+  margin: 0;
+  font-size: var(--body-size);
+  line-height: var(--lh);
+  color: var(--text-body);
+  direction: var(--text-dir);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label,
+  .head,
+  .body {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
