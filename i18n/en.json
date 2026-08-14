@@ -5,7 +5,10 @@
     "process": "Process",
     "approach": "Approach",
     "systems": "Systems",
-    "about": "About"
+    "about": "About",
+    "menuLabel": "Menu",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "cta": {
     "primary": "Request a Consultation",

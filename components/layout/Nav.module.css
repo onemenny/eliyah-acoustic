@@ -94,6 +94,178 @@
   color: var(--text-heading);
 }
 
+/* ── Mobile collapse (issue #15) ──────────────────────────────────────
+   960px — the full desktop `.links` row (wordmark + 5 links + CTA +
+   language toggle) needs ~897px at /en/ (the binding locale) to fit on one
+   line without wrapping; 960px adds a safety buffer above that measured
+   value. Keep in sync with Nav.tsx's NAV_COLLAPSE_BREAKPOINT_PX (no shared
+   token yet — see that file's comment). */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 20px;
+  inset-inline-end: var(--page-padding-x);
+  z-index: 60;
+  width: 26px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.menuToggleHidden {
+  /* The dialog is modal while open, so this button is inert anyway (HTML
+     spec) — hidden here purely so it doesn't visually double up with
+     .menuClose, which sits at the same fixed coordinates. */
+  opacity: 0;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-heading);
+}
+
+.menuClose {
+  position: fixed;
+  top: 20px;
+  inset-inline-end: var(--page-padding-x);
+  z-index: 60;
+  width: 26px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barX {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background: var(--text-heading);
+}
+
+.barX:first-child {
+  transform: rotate(45deg);
+}
+
+.barX:last-child {
+  transform: rotate(-45deg);
+}
+
+.menuToggle:focus-visible,
+.menuClose:focus-visible,
+.menuLink:focus-visible,
+.menuCta:focus-visible {
+  outline: 2px solid var(--aged-brass);
+  outline-offset: 2px;
+}
+
+.menuDialog {
+  position: fixed;
+  inset-inline: 0;
+  top: var(--nav-height, 96px);
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  overflow: visible;
+  /* Chrome layout stays LTR always (docs §5.3), same rule as .nav — only
+     the link/CTA text runs flip per locale. */
+  direction: ltr;
+}
+
+.menuDialog::backdrop {
+  background: rgba(24, 19, 16, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.menuPanel {
+  display: flex;
+  flex-direction: column;
+  background: var(--void-oak);
+  border-bottom: 1px solid var(--hairline-strong);
+  padding: 28px var(--page-padding-x) 36px;
+  max-height: calc(100vh - var(--nav-height, 96px));
+  overflow-y: auto;
+}
+
+.menuLink {
+  display: block;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.menuCta {
+  align-self: flex-start;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--aged-brass);
+  border-bottom: 1px solid var(--underline-brass);
+  padding-bottom: 4px;
+}
+
+.menuLang {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+
+@keyframes navMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menuDialog[open] .menuPanel {
+  animation: navMenuSlideDown 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (max-width: 959px) {
+  .links {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 960px) {
+  /* Defensive: JS already force-closes the panel on a resize back past the
+     breakpoint (Nav.tsx), this just ensures it can never render open here. */
+  .menuDialog {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav {
     /* Resting state is the solid, fully legible one — no transparent phase
@@ -102,5 +274,13 @@
     border-bottom-color: rgba(233, 226, 211, 0.12);
     transition: none;
     transform: none !important;
+  }
+
+  .menuToggle {
+    transition: none;
+  }
+
+  .menuDialog[open] .menuPanel {
+    animation: none;
   }
 }

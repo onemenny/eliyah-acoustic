@@ -5,7 +5,10 @@
     "process": "התהליך",
     "approach": "הגישה",
     "systems": "מערכות",
-    "about": "אודות"
+    "about": "אודות",
+    "menuLabel": "תפריט",
+    "menuOpen": "פתיחת תפריט",
+    "menuClose": "סגירת תפריט"
   },
   "cta": {
     "primary": "לתיאום פגישת ייעוץ",
